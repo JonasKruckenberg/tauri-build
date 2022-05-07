@@ -35,9 +35,10 @@ function buildProject(options) {
             args.push('--target', options.target);
         }
         yield (0, execa_1.execa)(runner, args, { cwd: projectPath });
+        const profile = options.debug ? 'debug' : 'release';
         const outDir = options.target
-            ? `./target/${options.target}/release/bundle`
-            : `./target/release/bundle`;
+            ? `./target/${options.target}/${profile}/bundle`
+            : `./target/${profile}/bundle`;
         const macOSExts = ['app', 'app.tar.gz', 'app.tar.gz.sig', 'dmg'];
         const linuxExts = [
             'AppImage',
@@ -106,7 +107,8 @@ function run() {
                 args: (0, string_argv_1.default)(core.getInput('args')),
                 projectPath: core.getInput('projectPath'),
                 configPath: core.getInput('configPath'),
-                target: core.getInput('target')
+                target: core.getInput('target'),
+                debug: core.getBooleanInput('debug')
             });
             core.setOutput('artifacts', artifacts.join('\n'));
         }

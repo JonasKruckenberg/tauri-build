@@ -9,7 +9,8 @@ async function run(): Promise<void> {
       args: stringArgv(core.getInput('args')),
       projectPath: core.getInput('projectPath'),
       configPath: core.getInput('configPath'),
-      target: core.getInput('target')
+      target: core.getInput('target'),
+      debug: core.getBooleanInput('debug')
     })
 
     core.setOutput('artifacts', artifacts.join('\n'))

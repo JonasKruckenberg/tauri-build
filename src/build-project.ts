@@ -6,6 +6,7 @@ interface BuildOptions {
   runner?: string
   projectPath?: string
   configPath?: string
+  debug?: boolean
   args?: string[]
   target?: string
 }
@@ -25,9 +26,11 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
 
   await execa(runner, args, {cwd: projectPath})
 
+  const profile = options.debug ? 'debug' : 'release'
   const outDir = options.target
-    ? `./target/${options.target}/release/bundle`
-    : `./target/release/bundle`
+    ? `./target/${options.target}/${profile}/bundle`
+    : `./target/${profile}/bundle`
+
   const macOSExts = ['app', 'app.tar.gz', 'app.tar.gz.sig', 'dmg']
   const linuxExts = [
     'AppImage',

@@ -15,6 +15,9 @@ inputs:
     default: 'tauri.conf.json'
   target:
     description: 'The target triple to build against'
+  debug:
+    description: 'Builds with the debug flag'
+    default: 'false'
 outputs:
   artifacts:
     description: ''
