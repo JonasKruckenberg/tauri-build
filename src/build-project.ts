@@ -24,7 +24,7 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
     args.push('--target', options.target)
   }
 
-  await execa(runner, args, {cwd: projectPath})
+  await execa(runner, args, {cwd: projectPath, stdio: 'inherit'})
 
   const profile = options.debug ? 'debug' : 'release'
   const outDir = options.target

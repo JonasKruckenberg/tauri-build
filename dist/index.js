@@ -34,7 +34,7 @@ function buildProject(options) {
         if (options.target) {
             args.push('--target', options.target);
         }
-        yield (0, execa_1.execa)(runner, args, { cwd: projectPath });
+        yield (0, execa_1.execa)(runner, args, { cwd: projectPath, stdio: 'inherit' });
         const profile = options.debug ? 'debug' : 'release';
         const outDir = options.target
             ? `./target/${options.target}/${profile}/bundle`
