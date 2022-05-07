@@ -1,4 +1,4 @@
-name: 'tauri-action'
+name: 'tauri-build'
 description: 'Build tauri binaries for MacOS, Windows and Linux'
 icon: 'download-cloud'
 color: 'blue'
