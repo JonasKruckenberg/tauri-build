@@ -1,3 +1,4 @@
+import { run } from '@tauri-apps/cli'
 import {execa} from 'execa'
 import {join} from 'path'
 import glob from 'tiny-glob'
@@ -13,7 +14,7 @@ interface BuildOptions {
 
 export async function buildProject(options: BuildOptions): Promise<string[]> {
   const projectPath = options.configPath || process.cwd()
-  const runner = options.runner || 'tauri'
+
   let args: string[] = options.args || []
 
   if (options.configPath) {
@@ -24,7 +25,13 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
     args.push('--target', options.target)
   }
 
-  await execa(runner, args, {cwd: projectPath, stdio: 'inherit'})
+  process.chdir(projectPath)
+
+  if (options.runner) {
+    await execa(options.runner, args, { stdio: 'inherit' })
+  } else {
+    await run(args, '')
+  }
 
   const profile = options.debug ? 'debug' : 'release'
   const outDir = options.target
