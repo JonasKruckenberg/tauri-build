@@ -1,6 +1,6 @@
 name: 'tauri-build'
 description: 'Build tauri binaries for MacOS, Windows and Linux'
-icon: 'download-cloud'
+icon: 'box'
 color: 'blue'
 author: 'Tauri Programme within The Commons Conservancy'
 inputs:
