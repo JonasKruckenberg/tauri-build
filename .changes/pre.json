@@ -1,6 +1,4 @@
 {
   "tag": "beta",
-  "changes": [
-    ".changes/fix-cli-on-platforms.md"
-  ]
+  "changes": []
 }
