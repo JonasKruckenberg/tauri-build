@@ -46,7 +46,6 @@ jobs:
       - name: covector version or publish (publish when no change files present)
         uses: jbolda/covector/packages/action@covector-v0.7
         id: covector
-        env:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           command: 'version-or-publish'
