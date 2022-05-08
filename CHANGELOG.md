@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.1.2-beta.2]
+
+- Call the correct tauri subcommand
+  - [f593898](https://github.com/JonasKruckenberg/tauri-build/commit/f593898d4994e9ab7130631432cffbbde4ec74ba) fix: call the correct tauri subcommand on 2022-05-08
+
 ## \[0.1.2-beta.1]
 
 - Update Tauri CLI to version `1.0.0-rc.10`
