@@ -216,28 +216,10 @@ Apache-2.0 OR MIT
    END OF TERMS AND CONDITIONS
 
 
-@tauri-apps/cli-darwin-arm64
-MIT
-
 @tauri-apps/cli-darwin-x64
 MIT
 
-@tauri-apps/cli-linux-arm-gnueabihf
-MIT
-
-@tauri-apps/cli-linux-arm64-gnu
-MIT
-
-@tauri-apps/cli-linux-arm64-musl
-MIT
-
 @tauri-apps/cli-linux-x64-gnu
-MIT
-
-@tauri-apps/cli-linux-x64-musl
-MIT
-
-@tauri-apps/cli-win32-ia32-msvc
 MIT
 
 @tauri-apps/cli-win32-x64-msvc

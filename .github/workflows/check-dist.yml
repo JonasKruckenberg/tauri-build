@@ -49,7 +49,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-optional
 
       - name: Rebuild the dist/ directory
         run: |

@@ -3,7 +3,7 @@
   "pkgManagers": {
     "github action": {
       "preversion": [
-        "pnpm install",
+        "pnpm install --no-optional",
         "pnpm build",
         "pnpm package"
       ],
@@ -16,7 +16,7 @@
     }
   },
   "packages": {
-    "typescript-action": {
+    "tauri-build": {
       "path": ".",
       "manager": "github action"
     }

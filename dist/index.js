@@ -1,13 +1,6 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 3405:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-module.exports = require(__nccwpck_require__.ab + "cli.darwin-arm64.node")
-
-/***/ }),
-
 /***/ 1834:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
@@ -15,45 +8,10 @@ module.exports = require(__nccwpck_require__.ab + "cli.darwin-x64.node")
 
 /***/ }),
 
-/***/ 5917:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-module.exports = require(__nccwpck_require__.ab + "cli.linux-arm-gnueabihf.node")
-
-/***/ }),
-
-/***/ 3247:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-module.exports = require(__nccwpck_require__.ab + "cli.linux-arm64-gnu.node")
-
-/***/ }),
-
-/***/ 9443:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-module.exports = require(__nccwpck_require__.ab + "cli.linux-arm64-musl.node")
-
-/***/ }),
-
 /***/ 2301:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.linux-x64-gnu.node")
-
-/***/ }),
-
-/***/ 9049:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-module.exports = require(__nccwpck_require__.ab + "cli.linux-x64-musl.node")
-
-/***/ }),
-
-/***/ 6015:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-module.exports = require(__nccwpck_require__.ab + "cli.win32-ia32-msvc.node")
 
 /***/ }),
 
@@ -1847,7 +1805,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(7781)
           } else {
-            nativeBinding = __nccwpck_require__(6015)
+            nativeBinding = __nccwpck_require__(3272)
           }
         } catch (e) {
           loadError = e
@@ -1893,7 +1851,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(3774)
           } else {
-            nativeBinding = __nccwpck_require__(3405)
+            nativeBinding = __nccwpck_require__(8806)
           }
         } catch (e) {
           loadError = e
@@ -1929,7 +1887,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = __nccwpck_require__(6052)
             } else {
-              nativeBinding = __nccwpck_require__(9049)
+              nativeBinding = __nccwpck_require__(925)
             }
           } catch (e) {
             loadError = e
@@ -1958,7 +1916,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = __nccwpck_require__(6596)
             } else {
-              nativeBinding = __nccwpck_require__(9443)
+              nativeBinding = __nccwpck_require__(1476)
             }
           } catch (e) {
             loadError = e
@@ -1971,7 +1929,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = __nccwpck_require__(8274)
             } else {
-              nativeBinding = __nccwpck_require__(3247)
+              nativeBinding = __nccwpck_require__(9229)
             }
           } catch (e) {
             loadError = e
@@ -1986,7 +1944,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(2452)
           } else {
-            nativeBinding = __nccwpck_require__(5917)
+            nativeBinding = __nccwpck_require__(7366)
           }
         } catch (e) {
           loadError = e
@@ -5458,6 +5416,14 @@ module.exports = eval("require")("@tauri-apps/cli-android-arm64");
 
 /***/ }),
 
+/***/ 8806:
+/***/ ((module) => {
+
+module.exports = eval("require")("@tauri-apps/cli-darwin-arm64");
+
+
+/***/ }),
+
 /***/ 2951:
 /***/ ((module) => {
 
@@ -5466,10 +5432,50 @@ module.exports = eval("require")("@tauri-apps/cli-freebsd-x64");
 
 /***/ }),
 
+/***/ 7366:
+/***/ ((module) => {
+
+module.exports = eval("require")("@tauri-apps/cli-linux-arm-gnueabihf");
+
+
+/***/ }),
+
+/***/ 9229:
+/***/ ((module) => {
+
+module.exports = eval("require")("@tauri-apps/cli-linux-arm64-gnu");
+
+
+/***/ }),
+
+/***/ 1476:
+/***/ ((module) => {
+
+module.exports = eval("require")("@tauri-apps/cli-linux-arm64-musl");
+
+
+/***/ }),
+
+/***/ 925:
+/***/ ((module) => {
+
+module.exports = eval("require")("@tauri-apps/cli-linux-x64-musl");
+
+
+/***/ }),
+
 /***/ 4793:
 /***/ ((module) => {
 
 module.exports = eval("require")("@tauri-apps/cli-win32-arm64-msvc");
+
+
+/***/ }),
+
+/***/ 3272:
+/***/ ((module) => {
+
+module.exports = eval("require")("@tauri-apps/cli-win32-ia32-msvc");
 
 
 /***/ }),
