@@ -29,7 +29,16 @@
     "@tauri-apps/cli": "1.0.0-rc.9",
     "execa": "^6.1.0",
     "string-argv": "^0.3.1",
-    "tiny-glob": "^0.2.9"
+    "tiny-glob": "^0.2.9",
+    "@tauri-apps/cli-win32-x64-msvc": "1.0.0-rc.9",
+    "@tauri-apps/cli-darwin-x64": "1.0.0-rc.9",
+    "@tauri-apps/cli-linux-x64-gnu": "1.0.0-rc.9",
+    "@tauri-apps/cli-darwin-arm64": "1.0.0-rc.9",
+    "@tauri-apps/cli-linux-arm64-gnu": "1.0.0-rc.9",
+    "@tauri-apps/cli-linux-arm64-musl": "1.0.0-rc.9",
+    "@tauri-apps/cli-linux-arm-gnueabihf": "1.0.0-rc.9",
+    "@tauri-apps/cli-linux-x64-musl": "1.0.0-rc.9",
+    "@tauri-apps/cli-win32-ia32-msvc": "1.0.0-rc.9"
   },
   "devDependencies": {
     "@types/node": "^16.10.5",
