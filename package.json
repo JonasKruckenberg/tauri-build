@@ -2,7 +2,7 @@
   "name": "tauri-build",
   "version": "0.1.2-beta.2",
   "description": "TypeScript template action",
-  "module": "lib/main.js",
+  "main": "lib/main.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
@@ -10,7 +10,6 @@
     "format-check": "prettier --check '**/*.ts'",
     "lint": "eslint src/**/*.ts",
     "package": "ncc build --source-map --license licenses.txt",
-    "test": "jest",
     "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
   },
   "repository": {
