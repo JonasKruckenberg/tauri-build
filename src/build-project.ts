@@ -13,7 +13,7 @@ interface BuildOptions {
 }
 
 export async function buildProject(options: BuildOptions): Promise<string[]> {
-  const projectPath = options.configPath || process.cwd()
+  const projectPath = options.projectPath || process.cwd()
 
   let args: string[] = options.args || []
 
