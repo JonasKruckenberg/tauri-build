@@ -8,7 +8,7 @@ specifiers:
   '@tauri-apps/cli-win32-x64-msvc': 1.0.0-rc.9
   '@types/node': 16.11.33
   '@typescript-eslint/parser': 5.22.0
-  '@vercel/ncc': 0.31.1
+  '@vercel/ncc': 0.33.4
   eslint: 8.15.0
   eslint-plugin-github: 4.3.6
   execa: ^6.1.0
@@ -31,7 +31,7 @@ dependencies:
 devDependencies:
   '@types/node': 16.11.33
   '@typescript-eslint/parser': 5.22.0_hcfsmds2fshutdssjqluwm76uu
-  '@vercel/ncc': 0.31.1
+  '@vercel/ncc': 0.33.4
   eslint: 8.15.0
   eslint-plugin-github: 4.3.6_hcfsmds2fshutdssjqluwm76uu
   js-yaml: 4.1.0
@@ -337,8 +337,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vercel/ncc/0.31.1:
-    resolution: {integrity: sha512-g0FAxwdViI6UzsiVz5HssIHqjcPa1EHL6h+2dcJD893SoCJaGdqqgUF09xnMW6goWnnhbLvgiKlgJWrJa+7qYA==}
+  /@vercel/ncc/0.33.4:
+    resolution: {integrity: sha512-ln18hs7dMffelP47tpkaR+V5Tj6coykNyxJrlcmCormPqRQjB/Gv4cu2FfBG+PMzIfdZp2CLDsrrB1NPU22Qhg==}
     hasBin: true
     dev: true
 
