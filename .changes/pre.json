@@ -1,6 +1,8 @@
 {
   "tag": "beta",
   "changes": [
-    ".changes/fix-cli-on-platforms.md"
+    ".changes/chore-update-tauri.md",
+    ".changes/fix-cli-on-platforms.md",
+    ".changes/fix-project-path.md"
   ]
 }
