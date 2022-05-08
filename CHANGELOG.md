@@ -1,5 +1,12 @@
 # Changelog
 
+## \[0.1.2-beta.1]
+
+- Update Tauri CLI to version `1.0.0-rc.10`
+  - [f83afa4](https://github.com/JonasKruckenberg/tauri-build/commit/f83afa4608fbec046f5b1015d2129e36c6de7c2f) Create chore-update-tauri.md on 2022-05-08
+- Correctly change working dir to projectPath when configured.
+  - [8864b18](https://github.com/JonasKruckenberg/tauri-build/commit/8864b1892897635a72de9bfce95f395c39c35eb1) fix: correctly change working dir to projectPath on 2022-05-08
+
 ## \[0.1.2-beta.0]
 
 - Include Tauri CLI binaries for all supported platforms.
