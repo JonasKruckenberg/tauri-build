@@ -28,9 +28,9 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
   process.chdir(projectPath)
 
   if (options.runner) {
-    await execa(options.runner, args, { stdio: 'inherit' })
+    await execa(options.runner, ['build', ...args], { stdio: 'inherit' })
   } else {
-    await run(args, '')
+    await run(['build', ...args], '')
   }
 
   const profile = options.debug ? 'debug' : 'release'
