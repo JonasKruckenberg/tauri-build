@@ -2,7 +2,8 @@
   "name": "tauri-build",
   "version": "0.1.2-beta.2",
   "description": "TypeScript template action",
-  "main": "lib/main.js",
+  "module": "lib/main.js",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write '**/*.ts'",

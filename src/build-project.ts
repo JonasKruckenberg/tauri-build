@@ -13,8 +13,6 @@ interface BuildOptions {
 }
 
 export async function buildProject(options: BuildOptions): Promise<string[]> {
-  const projectPath = options.projectPath || process.cwd()
-
   let args: string[] = options.args || []
 
   if (options.configPath) {
@@ -25,7 +23,9 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
     args.push('--target', options.target)
   }
 
-  process.chdir(projectPath)
+  if (options.projectPath) {
+    process.chdir(options.projectPath)
+  }
 
   if (options.runner) {
     await execa(options.runner, ['build', ...args], { stdio: 'inherit' })
