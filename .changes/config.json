@@ -2,6 +2,7 @@
   "gitSiteUrl": "https://github.com/JonasKruckenberg/tauri-build/",
   "pkgManagers": {
     "github action": {
+      "version": true,
       "preversion": [
         "pnpm install --no-optional",
         "pnpm build",
