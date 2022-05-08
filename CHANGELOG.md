@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.1.2-beta.3]
+
+- Only change working directory when projectPath is given.
+  - [5fa2b7e](https://github.com/JonasKruckenberg/tauri-build/commit/5fa2b7e361e1a40748f9373544d42ae2d287e260) only change dir optionally on 2022-05-08
+
 ## \[0.1.2-beta.2]
 
 - Call the correct tauri subcommand
