@@ -57,10 +57,10 @@ function buildProject(options) {
         }
         process.chdir(projectPath);
         if (options.runner) {
-            yield (0, execa_1.execa)(options.runner, args, { stdio: 'inherit' });
+            yield (0, execa_1.execa)(options.runner, ['build', ...args], { stdio: 'inherit' });
         }
         else {
-            yield (0, cli_1.run)(args, '');
+            yield (0, cli_1.run)(['build', ...args], '');
         }
         const profile = options.debug ? 'debug' : 'release';
         const outDir = options.target
