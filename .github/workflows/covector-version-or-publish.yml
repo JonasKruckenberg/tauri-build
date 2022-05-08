@@ -1,5 +1,10 @@
 name: version or publish
 
+permissions:
+  contents: read
+  metadata: read
+  pull-requests: write
+
 on:
   push:
     branches:
