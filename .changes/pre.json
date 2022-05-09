@@ -6,6 +6,7 @@
     ".changes/fix-build-args.md",
     ".changes/fix-cli-on-platforms.md",
     ".changes/fix-correct-json-formatting.md",
+    ".changes/fix-glob-on-windows.md",
     ".changes/fix-optional-chdir.md",
     ".changes/fix-project-path.md",
     ".changes/fix-replace-execa.md"

@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.1.2-beta.7]
+
+- Fix globbing for artifacts on windows.
+  - [4728478](https://github.com/JonasKruckenberg/tauri-build/commit/4728478711cb3d8373d20dd2246f44bacbd51f3b) fix: globbing for artifacts on windows on 2022-05-09
+
 ## \[0.1.2-beta.6]
 
 - Correctly encode the output as JSON
