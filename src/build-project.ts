@@ -1,8 +1,13 @@
-import { run } from '@tauri-apps/cli'
-import {join, resolve} from 'path'
+import {run} from '@tauri-apps/cli'
+import {dirname, join, resolve} from 'path'
 import glob from 'tiny-glob'
 import * as core from '@actions/core'
-import { spawn } from 'child_process'
+import {
+  exec,
+  ExecOptionsWithStringEncoding,
+  spawn,
+  SpawnOptionsWithoutStdio
+} from 'child_process'
 
 interface BuildOptions {
   runner?: string
@@ -32,16 +37,21 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
 
   if (options.runner) {
     core.info(`running ${options.runner} with args: build ${args.join(' ')}`)
-    await execRunnerCmd(options.runner, ['build', ...args])
+    await spawnCmd(options.runner, ['build', ...args])
   } else {
     core.info(`running builtin runner with args: build ${args.join(' ')}`)
     await run(['build', ...args], '')
   }
 
+  const crateDir = await glob(`./**/Cargo.toml`).then(([manifest]) => join(process.cwd(), dirname(manifest)))
+  const metaRaw = await execCmd('cargo', ['metadata', '--no-deps', '--format-version', '1'], { cwd: crateDir })
+  const meta = JSON.parse(metaRaw)
+  const targetDir = meta.target_directory
+  
   const profile = options.debug ? 'debug' : 'release'
-  const outDir = options.target
-    ? `./target/${options.target}/${profile}/bundle`
-    : `./target/${profile}/bundle`
+  const bundleDir = options.target
+    ? join(targetDir, options.target, profile, 'bundle')
+    : join(targetDir, profile, 'bundle')
 
   const macOSExts = ['app', 'app.tar.gz', 'app.tar.gz.sig', 'dmg']
   const linuxExts = [
@@ -52,29 +62,52 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
   ]
   const windowsExts = ['msi', 'msi.zip', 'msi.zip.sig']
 
-  const artifactsLookupPattern = join(outDir, `*/*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`)
+  const artifactsLookupPattern = join(bundleDir, `*/*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`)
 
   core.debug(`Looking for artifacts using this pattern: ${artifactsLookupPattern}`)
 
-  return glob(artifactsLookupPattern)
+  return glob(artifactsLookupPattern, { absolute: true, filesOnly: false })
 }
 
-async function execRunnerCmd(runner: string, args: string[]) {
+async function spawnCmd(
+  cmd: string,
+  args: string[],
+  options: SpawnOptionsWithoutStdio = {}
+) {
   return new Promise((resolve, reject) => {
-    const child = spawn(runner, args, { stdio: 'inherit', shell: true })
+    const child = spawn(cmd, args, {...options, stdio: ['pipe', 'inherit', 'inherit'], shell: true})
 
-    child.on('exit', (exitCode, signal) => {
-      resolve({exitCode, signal});
-    });
-  
+    child.on('exit', () => resolve)
+
     child.on('error', error => {
-      reject(error);
-    });
-  
+      reject(error)
+    })
+
     if (child.stdin) {
       child.stdin.on('error', error => {
-        reject(error);
-      });
+        reject(error)
+      })
     }
+  })
+}
+
+async function execCmd(
+  cmd: string,
+  args: string[],
+  options: Omit<ExecOptionsWithStringEncoding, 'encoding'>
+): Promise<string> {
+  return new Promise((resolve, reject) => {
+    exec(
+      `${cmd} ${args.join(' ')}`,
+      {...options, encoding: 'utf-8'},
+      (error, stdout, stderr) => {
+        if (error) {
+          console.error(`Failed to execute cmd ${cmd} with args: ${args.join(' ')}. reason: ${error}`);
+          reject(stderr)
+        } else {
+          resolve(stdout)
+        }
+      }
+    )
   })
 }
