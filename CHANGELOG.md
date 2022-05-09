@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.1.2-beta.4]
+
+- Replace execa with standard NodeJS exec.
+  - [9c72264](https://github.com/JonasKruckenberg/tauri-build/commit/9c722640b5343e17d4e870945a5ab8bab093a782) add changefile on 2022-05-09
+
 ## \[0.1.2-beta.3]
 
 - Only change working directory when projectPath is given.
