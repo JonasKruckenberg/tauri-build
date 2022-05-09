@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.1.2-beta.5]
+
+- Use proper cargo command to detect the artifact directory.
+  - [e21d218](https://github.com/JonasKruckenberg/tauri-build/commit/e21d218be11a5009285f6bb6b1cee5a214cec470) fix: proper target dir detection using cargo on 2022-05-09
+
 ## \[0.1.2-beta.4]
 
 - Replace execa with standard NodeJS exec.
