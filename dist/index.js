@@ -203,7 +203,7 @@ function run() {
                 target: core.getInput('target'),
                 debug: core.getBooleanInput('debug')
             });
-            core.setOutput('artifacts', artifacts);
+            core.setOutput('artifacts', JSON.stringify(artifacts));
         }
         catch (error) {
             if (error instanceof Error)
