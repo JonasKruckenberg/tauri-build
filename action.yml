@@ -17,10 +17,10 @@ inputs:
     description: 'The target triple to build against'
   debug:
     description: 'Builds with the debug flag'
-    default: 'false'
+    default: false
 outputs:
   artifacts:
-    description: ''
+    description: 'JSON array of artifact paths produced by the build command'
 runs:
   using: 'node16'
   main: 'dist/index.js'
