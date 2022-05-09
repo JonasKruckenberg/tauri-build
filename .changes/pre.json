@@ -5,6 +5,7 @@
     ".changes/fix-build-args.md",
     ".changes/fix-cli-on-platforms.md",
     ".changes/fix-optional-chdir.md",
-    ".changes/fix-project-path.md"
+    ".changes/fix-project-path.md",
+    ".changes/fix-replace-execa.md"
   ]
 }
