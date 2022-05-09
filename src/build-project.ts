@@ -62,7 +62,7 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
   ]
   const windowsExts = ['msi', 'msi.zip', 'msi.zip.sig']
 
-  const artifactsLookupPattern = `${bundleDir}/*/*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`
+  const artifactsLookupPattern = `${bundleDir}/*/!(linuxdeploy)*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`
 
   core.debug(`Looking for artifacts using this pattern: ${artifactsLookupPattern}`)
 
