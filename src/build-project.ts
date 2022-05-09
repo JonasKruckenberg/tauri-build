@@ -1,7 +1,8 @@
 import { run } from '@tauri-apps/cli'
-import {execa} from 'execa'
-import {join} from 'path'
+import {join, resolve} from 'path'
 import glob from 'tiny-glob'
+import * as core from '@actions/core'
+import { spawn } from 'child_process'
 
 interface BuildOptions {
   runner?: string
@@ -24,12 +25,16 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
   }
 
   if (options.projectPath) {
-    process.chdir(options.projectPath)
+    const newCwd = resolve(process.cwd(), options.projectPath)
+    core.debug(`changing working directory: ${process.cwd()} -> ${newCwd}`)
+    process.chdir(newCwd)
   }
 
   if (options.runner) {
-    await execa(options.runner, ['build', ...args], { stdio: 'inherit' })
+    core.info(`running ${options.runner} with args: build ${args.join(' ')}`)
+    await execRunnerCmd(options.runner, ['build', ...args])
   } else {
+    core.info(`running builtin runner with args: build ${args.join(' ')}`)
     await run(['build', ...args], '')
   }
 
@@ -47,7 +52,29 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
   ]
   const windowsExts = ['msi', 'msi.zip', 'msi.zip.sig']
 
-  return glob(
-    join(outDir, `*/*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`)
-  )
+  const artifactsLookupPattern = join(outDir, `*/*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`)
+
+  core.debug(`Looking for artifacts using this pattern: ${artifactsLookupPattern}`)
+
+  return glob(artifactsLookupPattern)
+}
+
+async function execRunnerCmd(runner: string, args: string[]) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(runner, args, { stdio: 'inherit', shell: true })
+
+    child.on('exit', (exitCode, signal) => {
+      resolve({exitCode, signal});
+    });
+  
+    child.on('error', error => {
+      reject(error);
+    });
+  
+    if (child.stdin) {
+      child.stdin.on('error', error => {
+        reject(error);
+      });
+    }
+  })
 }
