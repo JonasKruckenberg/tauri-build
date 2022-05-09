@@ -107,7 +107,7 @@ function buildProject(options) {
             'deb'
         ];
         const windowsExts = ['msi', 'msi.zip', 'msi.zip.sig'];
-        const artifactsLookupPattern = `${bundleDir}/*/*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`;
+        const artifactsLookupPattern = `${bundleDir}/*/!(linuxdeploy)*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`;
         core.debug(`Looking for artifacts using this pattern: ${artifactsLookupPattern}`);
         return (0, tiny_glob_1.default)(artifactsLookupPattern, { absolute: true, filesOnly: false });
     });

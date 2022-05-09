@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.1.2-beta.8]
+
+- Ignore the linuxdelpoy.AppImage artifact
+  - [af44d01](https://github.com/JonasKruckenberg/tauri-build/commit/af44d01e2641bd82acc2c45f9b9ac8cb887a6577) fix: ignore linuxdeploy on 2022-05-09
+
 ## \[0.1.2-beta.7]
 
 - Fix globbing for artifacts on windows.
