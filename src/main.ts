@@ -13,7 +13,7 @@ async function run(): Promise<void> {
       debug: core.getBooleanInput('debug')
     })
 
-    core.setOutput('artifacts', artifacts)
+    core.setOutput('artifacts', JSON.stringify(artifacts))
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
