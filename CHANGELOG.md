@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.1.2-beta.6]
+
+- Correctly encode the output as JSON
+  - [86b50e9](https://github.com/JonasKruckenberg/tauri-build/commit/86b50e91f77b9e0b951b4d7a02bf8c969caa9c15) fix: correctly encode output as json on 2022-05-09
+
 ## \[0.1.2-beta.5]
 
 - Use proper cargo command to detect the artifact directory.
