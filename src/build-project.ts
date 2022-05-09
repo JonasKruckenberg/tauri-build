@@ -1,5 +1,5 @@
 import {run} from '@tauri-apps/cli'
-import {dirname, join, resolve} from 'path'
+import {dirname, join, posix, resolve, sep} from 'path'
 import glob from 'tiny-glob'
 import * as core from '@actions/core'
 import {
@@ -62,7 +62,7 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
   ]
   const windowsExts = ['msi', 'msi.zip', 'msi.zip.sig']
 
-  const artifactsLookupPattern = join(bundleDir, `*/*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`)
+  const artifactsLookupPattern = `${bundleDir}/*/*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`
 
   core.debug(`Looking for artifacts using this pattern: ${artifactsLookupPattern}`)
 
