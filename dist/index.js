@@ -85,16 +85,20 @@ function buildProject(options) {
         }
         if (options.runner) {
             core.info(`running ${options.runner} with args: build ${args.join(' ')}`);
-            yield execRunnerCmd(options.runner, ['build', ...args]);
+            yield spawnCmd(options.runner, ['build', ...args]);
         }
         else {
             core.info(`running builtin runner with args: build ${args.join(' ')}`);
             yield (0, cli_1.run)(['build', ...args], '');
         }
+        const crateDir = yield (0, tiny_glob_1.default)(`./**/Cargo.toml`).then(([manifest]) => (0, path_1.join)(process.cwd(), (0, path_1.dirname)(manifest)));
+        const metaRaw = yield execCmd('cargo', ['metadata', '--no-deps', '--format-version', '1'], { cwd: crateDir });
+        const meta = JSON.parse(metaRaw);
+        const targetDir = meta.target_directory;
         const profile = options.debug ? 'debug' : 'release';
-        const outDir = options.target
-            ? `./target/${options.target}/${profile}/bundle`
-            : `./target/${profile}/bundle`;
+        const bundleDir = options.target
+            ? (0, path_1.join)(targetDir, options.target, profile, 'bundle')
+            : (0, path_1.join)(targetDir, profile, 'bundle');
         const macOSExts = ['app', 'app.tar.gz', 'app.tar.gz.sig', 'dmg'];
         const linuxExts = [
             'AppImage',
@@ -103,19 +107,17 @@ function buildProject(options) {
             'deb'
         ];
         const windowsExts = ['msi', 'msi.zip', 'msi.zip.sig'];
-        const artifactsLookupPattern = (0, path_1.join)(outDir, `*/*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`);
+        const artifactsLookupPattern = (0, path_1.join)(bundleDir, `*/*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`);
         core.debug(`Looking for artifacts using this pattern: ${artifactsLookupPattern}`);
-        return (0, tiny_glob_1.default)(artifactsLookupPattern);
+        return (0, tiny_glob_1.default)(artifactsLookupPattern, { absolute: true, filesOnly: false });
     });
 }
 exports.buildProject = buildProject;
-function execRunnerCmd(runner, args) {
+function spawnCmd(cmd, args, options = {}) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => {
-            const child = (0, child_process_1.spawn)(runner, args, { stdio: 'inherit', shell: true });
-            child.on('exit', (exitCode, signal) => {
-                resolve({ exitCode, signal });
-            });
+            const child = (0, child_process_1.spawn)(cmd, args, Object.assign(Object.assign({}, options), { stdio: ['pipe', 'inherit', 'inherit'], shell: true }));
+            child.on('exit', () => resolve);
             child.on('error', error => {
                 reject(error);
             });
@@ -124,6 +126,21 @@ function execRunnerCmd(runner, args) {
                     reject(error);
                 });
             }
+        });
+    });
+}
+function execCmd(cmd, args, options) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return new Promise((resolve, reject) => {
+            (0, child_process_1.exec)(`${cmd} ${args.join(' ')}`, Object.assign(Object.assign({}, options), { encoding: 'utf-8' }), (error, stdout, stderr) => {
+                if (error) {
+                    console.error(`Failed to execute cmd ${cmd} with args: ${args.join(' ')}. reason: ${error}`);
+                    reject(stderr);
+                }
+                else {
+                    resolve(stdout);
+                }
+            });
         });
     });
 }
@@ -186,7 +203,7 @@ function run() {
                 target: core.getInput('target'),
                 debug: core.getBooleanInput('debug')
             });
-            core.setOutput('artifacts', artifacts.join('\n'));
+            core.setOutput('artifacts', artifacts);
         }
         catch (error) {
             if (error instanceof Error)
