@@ -12,7 +12,6 @@ inputs:
     description: 'Path to the root of the project'
   configPath:
     description: 'Path to the tauri.conf.json file if you want a configuration different from the default one'
-    default: 'tauri.conf.json'
   target:
     description: 'The target triple to build against'
   debug:
