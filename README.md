@@ -7,6 +7,8 @@ A composable action to build your Tauri project.
 As opposed to the offical [tauri-action](https://github.com/tauri-apps/tauri-action) this action is as minimal as possible. 
 Instead of creating a GitHub release and uploading artifacts all-in-one, it provides outputs to conveniently compose together with other actions such as `actions/upload-artifact`, `actions/download-artifact` or `softprops/action-gh-release`.
 
+This action needs both Node.JS and Cargo to be already setup. 
+
 ### Minimal
 
 The following example workflow builds artifacts on all 3 supported platforms (Window, macOS and Linux).
