@@ -6,10 +6,12 @@
     ".changes/fix-build-args.md",
     ".changes/fix-cli-on-platforms.md",
     ".changes/fix-correct-json-formatting.md",
+    ".changes/fix-correctly-handle-app-files.md",
     ".changes/fix-glob-on-windows.md",
     ".changes/fix-ignore-linxdeploy.md",
     ".changes/fix-optional-chdir.md",
     ".changes/fix-project-path.md",
+    ".changes/fix-remove-default.md",
     ".changes/fix-replace-execa.md"
   ]
 }

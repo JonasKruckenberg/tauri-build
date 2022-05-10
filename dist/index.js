@@ -109,7 +109,20 @@ function buildProject(options) {
         const windowsExts = ['msi', 'msi.zip', 'msi.zip.sig'];
         const artifactsLookupPattern = `${bundleDir}/*/!(linuxdeploy)*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`;
         core.debug(`Looking for artifacts using this pattern: ${artifactsLookupPattern}`);
-        return (0, tiny_glob_1.default)(artifactsLookupPattern, { absolute: true, filesOnly: false });
+        const artifacts = yield (0, tiny_glob_1.default)(artifactsLookupPattern, { absolute: true, filesOnly: false });
+        let i = 0;
+        for (const artifact of artifacts) {
+            if (artifact.endsWith('.app') && !artifacts.some(a => a.endsWith('.app.tar.gz'))) {
+                yield execCmd('tar', ['czf', `${artifact}.tar.gz`, '-C', (0, path_1.dirname)(artifact), (0, path_1.basename)(artifact)]);
+                artifacts[i] += '.tar.gz';
+            }
+            else if (artifact.endsWith('.app')) {
+                // we can't upload a directory
+                artifacts.splice(i, 1);
+            }
+            i++;
+        }
+        return artifacts;
     });
 }
 exports.buildProject = buildProject;
@@ -129,7 +142,7 @@ function spawnCmd(cmd, args, options = {}) {
         });
     });
 }
-function execCmd(cmd, args, options) {
+function execCmd(cmd, args, options = {}) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => {
             (0, child_process_1.exec)(`${cmd} ${args.join(' ')}`, Object.assign(Object.assign({}, options), { encoding: 'utf-8' }), (error, stdout, stderr) => {
