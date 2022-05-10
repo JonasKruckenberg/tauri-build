@@ -1,5 +1,5 @@
 import {run} from '@tauri-apps/cli'
-import {dirname, join, posix, resolve, sep} from 'path'
+import {basename, dirname, join, posix, resolve, sep} from 'path'
 import glob from 'tiny-glob'
 import * as core from '@actions/core'
 import {
@@ -66,7 +66,22 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
 
   core.debug(`Looking for artifacts using this pattern: ${artifactsLookupPattern}`)
 
-  return glob(artifactsLookupPattern, { absolute: true, filesOnly: false })
+  const artifacts = await glob(artifactsLookupPattern, { absolute: true, filesOnly: false })
+
+  let i = 0;
+  for (const artifact of artifacts) {
+    if (artifact.endsWith('.app') && !artifacts.some(a => a.endsWith('.app.tar.gz'))) {
+      await execCmd('tar', ['czf', `${artifact}.tar.gz`, '-C', dirname(artifact), basename(artifact)])
+      artifacts[i] += '.tar.gz'
+    } else if (artifact.endsWith('.app')) {
+      // we can't upload a directory
+      artifacts.splice(i, 1);
+    }
+
+    i++
+  }
+
+  return artifacts
 }
 
 async function spawnCmd(
@@ -94,7 +109,7 @@ async function spawnCmd(
 async function execCmd(
   cmd: string,
   args: string[],
-  options: Omit<ExecOptionsWithStringEncoding, 'encoding'>
+  options: Omit<ExecOptionsWithStringEncoding, 'encoding'> = {}
 ): Promise<string> {
   return new Promise((resolve, reject) => {
     exec(
