@@ -2,8 +2,8 @@ name: "publish"
 
 on:
   push:
-    branches:
-      - test-release
+    tags:
+      - test-release/*.*.*
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -64,5 +64,4 @@ jobs:
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
-          draft: false
           files: ./artifacts/**/*
