@@ -1,5 +1,12 @@
 # Changelog
 
+## \[0.1.2-beta.9]
+
+- Correctly compress .app files or omit them.
+  - [c9676c7](https://github.com/JonasKruckenberg/tauri-build/commit/c9676c7bb66d2fb0da128dc28a86bdca541e3cc5) fix: correctly handle .app files on 2022-05-10
+- Remove default `configPath`
+  - [3708b7d](https://github.com/JonasKruckenberg/tauri-build/commit/3708b7de55753331b93547c98ab47f70a1d2be2b) fix: remove default configPath on 2022-05-10
+
 ## \[0.1.2-beta.8]
 
 - Ignore the linuxdelpoy.AppImage artifact
