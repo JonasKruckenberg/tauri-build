@@ -1,6 +1,7 @@
 {
   "tag": "beta",
   "changes": [
+    ".changes/chore-update-deps.md",
     ".changes/chore-update-tauri.md",
     ".changes/fix-artifact-detection.md",
     ".changes/fix-build-args.md",
