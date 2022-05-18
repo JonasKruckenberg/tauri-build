@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.1.2-beta.10]
+
+- Update dependencies.
+  - [0ab72e4](https://github.com/JonasKruckenberg/tauri-build/commit/0ab72e4401f708b71b4556fa678ae644bfd164cb) Create chore-update-deps.md on 2022-05-18
+
 ## \[0.1.2-beta.9]
 
 - Correctly compress .app files or omit them.
