@@ -25,7 +25,7 @@
   "dependencies": {
     "@actions/core": "^1.6.0",
     "@tauri-apps/cli": "1.0.0-rc.12",
-    "@tauri-apps/cli-darwin-x64": "1.0.0-rc.12",
+    "@tauri-apps/cli-darwin-x64": "1.0.0-rc.13",
     "@tauri-apps/cli-linux-x64-gnu": "1.0.0-rc.12",
     "@tauri-apps/cli-win32-x64-msvc": "1.0.0-rc.13",
     "string-argv": "^0.3.1",
