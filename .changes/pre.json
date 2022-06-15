@@ -3,6 +3,7 @@
   "changes": [
     ".changes/chore-update-deps.md",
     ".changes/chore-update-tauri.md",
+    ".changes/chore-update-tauri2.md",
     ".changes/fix-artifact-detection.md",
     ".changes/fix-build-args.md",
     ".changes/fix-cli-on-platforms.md",

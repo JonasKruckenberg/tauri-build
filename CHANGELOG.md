@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.1.2-beta.11]
+
+- Update to latest Tauri version
+  - [9f533f3](https://github.com/JonasKruckenberg/tauri-build/commit/9f533f359c472a37212a33431f0c1c9905e2d58c) Create chore-update-tauri2.md on 2022-06-15
+
 ## \[0.1.2-beta.10]
 
 - Update dependencies.
