@@ -12,7 +12,7 @@ specifiers:
   eslint: 8.17.0
   eslint-plugin-github: 4.3.6
   js-yaml: 4.1.0
-  prettier: 2.7.0
+  prettier: 2.7.1
   string-argv: ^0.3.1
   tiny-glob: ^0.2.9
   typescript: 4.7.3
@@ -33,7 +33,7 @@ devDependencies:
   eslint: 8.17.0
   eslint-plugin-github: 4.3.6_ud6rd4xtew5bv4yhvkvu24pzm4
   js-yaml: 4.1.0
-  prettier: 2.7.0
+  prettier: 2.7.1
   typescript: 4.7.3
 
 packages:
@@ -711,9 +711,9 @@ packages:
       eslint-plugin-i18n-text: 1.0.1_eslint@8.17.0
       eslint-plugin-import: 2.26.0_wyrfqmvemfacbroyi3ypviy7f4
       eslint-plugin-no-only-tests: 2.6.0
-      eslint-plugin-prettier: 4.0.0_nguwan5pqsajixjz57ffz7bkde
+      eslint-plugin-prettier: 4.0.0_hsbo72uvra2cjko46y2c4fgzzm
       eslint-rule-documentation: 1.0.23
-      prettier: 2.7.0
+      prettier: 2.7.1
       svg-element-attributes: 1.3.1
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
@@ -766,7 +766,7 @@ packages:
     engines: {node: '>=4.0.0'}
     dev: true
 
-  /eslint-plugin-prettier/4.0.0_nguwan5pqsajixjz57ffz7bkde:
+  /eslint-plugin-prettier/4.0.0_hsbo72uvra2cjko46y2c4fgzzm:
     resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
@@ -779,7 +779,7 @@ packages:
     dependencies:
       eslint: 8.17.0
       eslint-config-prettier: 8.5.0_eslint@8.17.0
-      prettier: 2.7.0
+      prettier: 2.7.1
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -1462,8 +1462,8 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.7.0:
-    resolution: {integrity: sha512-nwoX4GMFgxoPC6diHvSwmK/4yU8FFH3V8XWtLQrbj4IBsK2pkYhG4kf/ljF/haaZ/aii+wNJqISrCDPgxGWDVQ==}
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
