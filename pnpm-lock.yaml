@@ -6,7 +6,7 @@ specifiers:
   '@tauri-apps/cli-darwin-x64': 1.0.0-rc.15
   '@tauri-apps/cli-linux-x64-gnu': 1.0.0-rc.15
   '@tauri-apps/cli-win32-x64-msvc': 1.0.0-rc.15
-  '@types/node': 16.11.40
+  '@types/node': 16.11.41
   '@typescript-eslint/parser': 5.28.0
   '@vercel/ncc': 0.34.0
   eslint: 8.17.0
@@ -27,7 +27,7 @@ dependencies:
   tiny-glob: 0.2.9
 
 devDependencies:
-  '@types/node': 16.11.40
+  '@types/node': 16.11.41
   '@typescript-eslint/parser': 5.28.0_ud6rd4xtew5bv4yhvkvu24pzm4
   '@vercel/ncc': 0.34.0
   eslint: 8.17.0
@@ -202,8 +202,8 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
 
-  /@types/node/16.11.40:
-    resolution: {integrity: sha512-7bOWglXUO6f21NG3YDI7hIpeMX3M59GG+DzZuzX2EkFKYUnRoxq3EOg4R0KNv2hxryY9M3UUqG5akwwsifrukw==}
+  /@types/node/16.11.41:
+    resolution: {integrity: sha512-mqoYK2TnVjdkGk8qXAVGc/x9nSaTpSrFaGFm43BUH3IdoBV0nta6hYaGmdOvIMlbHJbUEVen3gvwpwovAZKNdQ==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.28.0_7yumg2qjgbp7maccqlfhx2vudu:
