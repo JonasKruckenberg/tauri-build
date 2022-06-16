@@ -1,5 +1,5 @@
 import {run} from '@tauri-apps/cli'
-import {basename, dirname, join, posix, resolve, sep} from 'path'
+import {basename, dirname, join, resolve} from 'path'
 import glob from 'tiny-glob'
 import * as core from '@actions/core'
 import {
@@ -19,7 +19,7 @@ interface BuildOptions {
 }
 
 export async function buildProject(options: BuildOptions): Promise<string[]> {
-  let args: string[] = options.args || []
+  const args: string[] = options.args || []
 
   if (options.configPath) {
     args.push('--config', options.configPath)
@@ -43,11 +43,17 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
     await run(['build', ...args], '')
   }
 
-  const crateDir = await glob(`./**/Cargo.toml`).then(([manifest]) => join(process.cwd(), dirname(manifest)))
-  const metaRaw = await execCmd('cargo', ['metadata', '--no-deps', '--format-version', '1'], { cwd: crateDir })
+  const crateDir = await glob(`./**/Cargo.toml`).then(([manifest]) =>
+    join(process.cwd(), dirname(manifest))
+  )
+  const metaRaw = await execCmd(
+    'cargo',
+    ['metadata', '--no-deps', '--format-version', '1'],
+    {cwd: crateDir}
+  )
   const meta = JSON.parse(metaRaw)
   const targetDir = meta.target_directory
-  
+
   const profile = options.debug ? 'debug' : 'release'
   const bundleDir = options.target
     ? join(targetDir, options.target, profile, 'bundle')
@@ -62,20 +68,38 @@ export async function buildProject(options: BuildOptions): Promise<string[]> {
   ]
   const windowsExts = ['msi', 'msi.zip', 'msi.zip.sig']
 
-  const artifactsLookupPattern = `${bundleDir}/*/!(linuxdeploy)*.{${[...macOSExts, linuxExts, windowsExts].join(',')}}`
+  const artifactsLookupPattern = `${bundleDir}/*/!(linuxdeploy)*.{${[
+    ...macOSExts,
+    linuxExts,
+    windowsExts
+  ].join(',')}}`
 
-  core.debug(`Looking for artifacts using this pattern: ${artifactsLookupPattern}`)
+  core.debug(
+    `Looking for artifacts using this pattern: ${artifactsLookupPattern}`
+  )
 
-  const artifacts = await glob(artifactsLookupPattern, { absolute: true, filesOnly: false })
+  const artifacts = await glob(artifactsLookupPattern, {
+    absolute: true,
+    filesOnly: false
+  })
 
-  let i = 0;
+  let i = 0
   for (const artifact of artifacts) {
-    if (artifact.endsWith('.app') && !artifacts.some(a => a.endsWith('.app.tar.gz'))) {
-      await execCmd('tar', ['czf', `${artifact}.tar.gz`, '-C', dirname(artifact), basename(artifact)])
+    if (
+      artifact.endsWith('.app') &&
+      !artifacts.some(a => a.endsWith('.app.tar.gz'))
+    ) {
+      await execCmd('tar', [
+        'czf',
+        `${artifact}.tar.gz`,
+        '-C',
+        dirname(artifact),
+        basename(artifact)
+      ])
       artifacts[i] += '.tar.gz'
     } else if (artifact.endsWith('.app')) {
       // we can't upload a directory
-      artifacts.splice(i, 1);
+      artifacts.splice(i, 1)
     }
 
     i++
@@ -88,9 +112,13 @@ async function spawnCmd(
   cmd: string,
   args: string[],
   options: SpawnOptionsWithoutStdio = {}
-) {
+): Promise<void> {
   return new Promise((resolve, reject) => {
-    const child = spawn(cmd, args, {...options, stdio: ['pipe', 'inherit', 'inherit'], shell: true})
+    const child = spawn(cmd, args, {
+      ...options,
+      stdio: ['pipe', 'inherit', 'inherit'],
+      shell: true
+    })
 
     child.on('exit', () => resolve)
 
@@ -117,7 +145,11 @@ async function execCmd(
       {...options, encoding: 'utf-8'},
       (error, stdout, stderr) => {
         if (error) {
-          console.error(`Failed to execute cmd ${cmd} with args: ${args.join(' ')}. reason: ${error}`);
+          console.error(
+            `Failed to execute cmd ${cmd} with args: ${args.join(
+              ' '
+            )}. reason: ${error}`
+          )
           reject(stderr)
         } else {
           resolve(stdout)
