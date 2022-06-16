@@ -5,7 +5,7 @@ specifiers:
   '@tauri-apps/cli': 1.0.0
   '@tauri-apps/cli-darwin-x64': 1.0.0-rc.15
   '@tauri-apps/cli-linux-x64-gnu': 1.0.0
-  '@tauri-apps/cli-win32-x64-msvc': 1.0.0-rc.15
+  '@tauri-apps/cli-win32-x64-msvc': 1.0.0
   '@types/node': 16.11.41
   '@typescript-eslint/parser': 5.28.0
   '@vercel/ncc': 0.34.0
@@ -22,7 +22,7 @@ dependencies:
   '@tauri-apps/cli': 1.0.0
   '@tauri-apps/cli-darwin-x64': 1.0.0-rc.15
   '@tauri-apps/cli-linux-x64-gnu': 1.0.0
-  '@tauri-apps/cli-win32-x64-msvc': 1.0.0-rc.15
+  '@tauri-apps/cli-win32-x64-msvc': 1.0.0
   string-argv: 0.3.1
   tiny-glob: 0.2.9
 
@@ -186,14 +186,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: false
-    optional: true
-
-  /@tauri-apps/cli-win32-x64-msvc/1.0.0-rc.15:
-    resolution: {integrity: sha512-SEzorZ4E3HsuE14iL+w5C45lHNLRBMg+KGjQkYRcLoGeOTjF9ETeGpsqHCP3nLmIPMhfUEZLB04/10wPMtlvlQ==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [win32]
     dev: false
 
   /@tauri-apps/cli/1.0.0:
