@@ -52,7 +52,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
 
-      - uses: JonasKruckenberg/tauri-build@v0.1.2-beta.9
+      - uses: JonasKruckenberg/tauri-build@v1
         id: tauri_build
 
     # You can now use the JSON array of artifacts under `steps.tauri_build.outputs.artifacts` to post-process/upload your bundles
@@ -101,7 +101,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
 
-      - uses: JonasKruckenberg/tauri-build@v0.1.2-beta.9
+      - uses: JonasKruckenberg/tauri-build@v1
         id: tauri_build
 
       # The `artifacts` output can now be used by a different action to upload the artifacts
@@ -183,7 +183,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
 
-      - uses: JonasKruckenberg/tauri-build@v0.1.2-beta.9
+      - uses: JonasKruckenberg/tauri-build@v1
         id: tauri_build
         with:
           target: ${{ matrix.rust_target }}
