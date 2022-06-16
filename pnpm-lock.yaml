@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@actions/core': ^1.6.0
   '@tauri-apps/cli': 1.0.0
-  '@tauri-apps/cli-darwin-x64': 1.0.0-rc.15
+  '@tauri-apps/cli-darwin-x64': 1.0.0
   '@tauri-apps/cli-linux-x64-gnu': 1.0.0
   '@tauri-apps/cli-win32-x64-msvc': 1.0.0
   '@types/node': 16.11.41
@@ -20,7 +20,7 @@ specifiers:
 dependencies:
   '@actions/core': 1.8.2
   '@tauri-apps/cli': 1.0.0
-  '@tauri-apps/cli-darwin-x64': 1.0.0-rc.15
+  '@tauri-apps/cli-darwin-x64': 1.0.0
   '@tauri-apps/cli-linux-x64-gnu': 1.0.0
   '@tauri-apps/cli-win32-x64-msvc': 1.0.0
   string-argv: 0.3.1
@@ -118,14 +118,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: false
-    optional: true
-
-  /@tauri-apps/cli-darwin-x64/1.0.0-rc.15:
-    resolution: {integrity: sha512-S5+yMw5ZFNgHYX2xvNQYSc5U3uL0wQfsu/2OWu6adGfXjSlE+vE0ZEVKVFqlMGQzJ2bLT3fXlHtBlA0KfjiXdQ==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [darwin]
     dev: false
 
   /@tauri-apps/cli-linux-arm-gnueabihf/1.0.0:
