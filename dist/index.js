@@ -1,21 +1,21 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 2689:
+/***/ 3386:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.darwin-x64.node")
 
 /***/ }),
 
-/***/ 1584:
+/***/ 7959:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.linux-x64-gnu.node")
 
 /***/ }),
 
-/***/ 6750:
+/***/ 8745:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.win32-x64-msvc.node")
@@ -64,10 +64,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.buildProject = void 0;
-const cli_1 = __nccwpck_require__(6034);
+const cli_1 = __nccwpck_require__(9255);
 const path_1 = __nccwpck_require__(1017);
 const tiny_glob_1 = __importDefault(__nccwpck_require__(6926));
-const core = __importStar(__nccwpck_require__(9602));
+const core = __importStar(__nccwpck_require__(6953));
 const child_process_1 = __nccwpck_require__(2081);
 function buildProject(options) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -216,7 +216,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const core = __importStar(__nccwpck_require__(9602));
+const core = __importStar(__nccwpck_require__(6953));
 const build_project_1 = __nccwpck_require__(8603);
 const string_argv_1 = __importDefault(__nccwpck_require__(3583));
 function run() {
@@ -243,7 +243,7 @@ run();
 
 /***/ }),
 
-/***/ 4317:
+/***/ 7686:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -270,7 +270,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.issue = exports.issueCommand = void 0;
 const os = __importStar(__nccwpck_require__(2037));
-const utils_1 = __nccwpck_require__(489);
+const utils_1 = __nccwpck_require__(7334);
 /**
  * Commands
  *
@@ -342,7 +342,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 9602:
+/***/ 6953:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -377,12 +377,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getIDToken = exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.notice = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getMultilineInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
-const command_1 = __nccwpck_require__(4317);
-const file_command_1 = __nccwpck_require__(5288);
-const utils_1 = __nccwpck_require__(489);
+const command_1 = __nccwpck_require__(7686);
+const file_command_1 = __nccwpck_require__(2139);
+const utils_1 = __nccwpck_require__(7334);
 const os = __importStar(__nccwpck_require__(2037));
 const path = __importStar(__nccwpck_require__(1017));
-const oidc_utils_1 = __nccwpck_require__(907);
+const oidc_utils_1 = __nccwpck_require__(4096);
 /**
  * The code to exit an action
  */
@@ -660,18 +660,25 @@ exports.getIDToken = getIDToken;
 /**
  * Summary exports
  */
-var summary_1 = __nccwpck_require__(1663);
+var summary_1 = __nccwpck_require__(8028);
 Object.defineProperty(exports, "summary", ({ enumerable: true, get: function () { return summary_1.summary; } }));
 /**
  * @deprecated use core.summary
  */
-var summary_2 = __nccwpck_require__(1663);
+var summary_2 = __nccwpck_require__(8028);
 Object.defineProperty(exports, "markdownSummary", ({ enumerable: true, get: function () { return summary_2.markdownSummary; } }));
+/**
+ * Path exports
+ */
+var path_utils_1 = __nccwpck_require__(9441);
+Object.defineProperty(exports, "toPosixPath", ({ enumerable: true, get: function () { return path_utils_1.toPosixPath; } }));
+Object.defineProperty(exports, "toWin32Path", ({ enumerable: true, get: function () { return path_utils_1.toWin32Path; } }));
+Object.defineProperty(exports, "toPlatformPath", ({ enumerable: true, get: function () { return path_utils_1.toPlatformPath; } }));
 //# sourceMappingURL=core.js.map
 
 /***/ }),
 
-/***/ 5288:
+/***/ 2139:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -702,7 +709,7 @@ exports.issueCommand = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(7147));
 const os = __importStar(__nccwpck_require__(2037));
-const utils_1 = __nccwpck_require__(489);
+const utils_1 = __nccwpck_require__(7334);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -720,7 +727,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 907:
+/***/ 4096:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -738,7 +745,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OidcClient = void 0;
 const http_client_1 = __nccwpck_require__(9706);
 const auth_1 = __nccwpck_require__(8336);
-const core_1 = __nccwpck_require__(9602);
+const core_1 = __nccwpck_require__(6953);
 class OidcClient {
     static createHttpClient(allowRetry = true, maxRetry = 10) {
         const requestOptions = {
@@ -804,7 +811,72 @@ exports.OidcClient = OidcClient;
 
 /***/ }),
 
-/***/ 1663:
+/***/ 9441:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.toPlatformPath = exports.toWin32Path = exports.toPosixPath = void 0;
+const path = __importStar(__nccwpck_require__(1017));
+/**
+ * toPosixPath converts the given path to the posix form. On Windows, \\ will be
+ * replaced with /.
+ *
+ * @param pth. Path to transform.
+ * @return string Posix path.
+ */
+function toPosixPath(pth) {
+    return pth.replace(/[\\]/g, '/');
+}
+exports.toPosixPath = toPosixPath;
+/**
+ * toWin32Path converts the given path to the win32 form. On Linux, / will be
+ * replaced with \\.
+ *
+ * @param pth. Path to transform.
+ * @return string Win32 path.
+ */
+function toWin32Path(pth) {
+    return pth.replace(/[/]/g, '\\');
+}
+exports.toWin32Path = toWin32Path;
+/**
+ * toPlatformPath converts the given path to a platform-specific path. It does
+ * this by replacing instances of / and \ with the platform-specific path
+ * separator.
+ *
+ * @param pth The path to platformize.
+ * @return string The platform-specific path.
+ */
+function toPlatformPath(pth) {
+    return pth.replace(/[/\\]/g, path.sep);
+}
+exports.toPlatformPath = toPlatformPath;
+//# sourceMappingURL=path-utils.js.map
+
+/***/ }),
+
+/***/ 8028:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1094,7 +1166,7 @@ exports.summary = _summary;
 
 /***/ }),
 
-/***/ 489:
+/***/ 7334:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1909,7 +1981,7 @@ exports.checkBypass = checkBypass;
 
 /***/ }),
 
-/***/ 934:
+/***/ 5713:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const { existsSync, readFileSync } = __nccwpck_require__(7147)
@@ -1976,7 +2048,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(1255)
           } else {
-            nativeBinding = __nccwpck_require__(6750)
+            nativeBinding = __nccwpck_require__(8745)
           }
         } catch (e) {
           loadError = e
@@ -2022,7 +2094,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(9979)
           } else {
-            nativeBinding = __nccwpck_require__(2689)
+            nativeBinding = __nccwpck_require__(3386)
           }
         } catch (e) {
           loadError = e
@@ -2053,7 +2125,7 @@ switch (platform) {
     localFileExisted = existsSync(join(__dirname, 'cli.freebsd-x64.node'))
     try {
       if (localFileExisted) {
-        nativeBinding = __nccwpck_require__(2139)
+        nativeBinding = __nccwpck_require__(8049)
       } else {
         nativeBinding = __nccwpck_require__(7474)
       }
@@ -2085,7 +2157,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = __nccwpck_require__(2026)
             } else {
-              nativeBinding = __nccwpck_require__(1584)
+              nativeBinding = __nccwpck_require__(7959)
             }
           } catch (e) {
             loadError = e
@@ -2157,10 +2229,10 @@ module.exports.run = run
 
 /***/ }),
 
-/***/ 6034:
+/***/ 9255:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const { run } = __nccwpck_require__(934)
+const { run } = __nccwpck_require__(5713)
 
 module.exports.run = (args, binName) => {
   return new Promise((resolve, reject) => {
@@ -3013,7 +3085,7 @@ module.exports = eval("require")("./cli.darwin-x64.node");
 
 /***/ }),
 
-/***/ 2139:
+/***/ 8049:
 /***/ ((module) => {
 
 module.exports = eval("require")("./cli.freebsd-x64.node");
