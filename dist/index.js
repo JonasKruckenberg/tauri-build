@@ -1,21 +1,21 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 2774:
+/***/ 1080:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.darwin-x64.node")
 
 /***/ }),
 
-/***/ 3961:
+/***/ 7934:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.linux-x64-gnu.node")
 
 /***/ }),
 
-/***/ 5673:
+/***/ 1111:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.win32-x64-msvc.node")
@@ -64,7 +64,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.buildProject = void 0;
-const cli_1 = __nccwpck_require__(5308);
+const cli_1 = __nccwpck_require__(5809);
 const path_1 = __nccwpck_require__(1017);
 const tiny_glob_1 = __importDefault(__nccwpck_require__(6926));
 const core = __importStar(__nccwpck_require__(6953));
@@ -72,6 +72,9 @@ const child_process_1 = __nccwpck_require__(2081);
 function buildProject(options) {
     return __awaiter(this, void 0, void 0, function* () {
         const args = options.args || [];
+        if (options.debug) {
+            args.push('--debug');
+        }
         if (options.configPath) {
             args.push('--config', options.configPath);
         }
@@ -1981,7 +1984,7 @@ exports.checkBypass = checkBypass;
 
 /***/ }),
 
-/***/ 8296:
+/***/ 3802:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const { existsSync, readFileSync } = __nccwpck_require__(7147)
@@ -2048,7 +2051,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(1255)
           } else {
-            nativeBinding = __nccwpck_require__(5673)
+            nativeBinding = __nccwpck_require__(1111)
           }
         } catch (e) {
           loadError = e
@@ -2094,7 +2097,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(9979)
           } else {
-            nativeBinding = __nccwpck_require__(2774)
+            nativeBinding = __nccwpck_require__(1080)
           }
         } catch (e) {
           loadError = e
@@ -2157,7 +2160,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = __nccwpck_require__(2026)
             } else {
-              nativeBinding = __nccwpck_require__(3961)
+              nativeBinding = __nccwpck_require__(7934)
             }
           } catch (e) {
             loadError = e
@@ -2222,17 +2225,18 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { run } = nativeBinding
+const { run, logError } = nativeBinding
 
 module.exports.run = run
+module.exports.logError = logError
 
 
 /***/ }),
 
-/***/ 5308:
+/***/ 5809:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const { run } = __nccwpck_require__(8296)
+const { run, logError } = __nccwpck_require__(3802)
 
 module.exports.run = (args, binName) => {
   return new Promise((resolve, reject) => {
@@ -2245,6 +2249,8 @@ module.exports.run = (args, binName) => {
     })
   })
 }
+
+module.exports.logError = logError
 
 
 /***/ }),
