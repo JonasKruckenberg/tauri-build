@@ -21,6 +21,10 @@ interface BuildOptions {
 export async function buildProject(options: BuildOptions): Promise<string[]> {
   const args: string[] = options.args || []
 
+  if (options.debug) {
+    args.push('--debug')
+  }
+
   if (options.configPath) {
     args.push('--config', options.configPath)
   }
