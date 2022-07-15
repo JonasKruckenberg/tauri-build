@@ -8,7 +8,7 @@
         "pnpm build",
         "pnpm package"
       ],
-      "getPublishedVersion": "git tag v${ pkgFile.version } 2> /dev/null || echo ${ pkgFile.version }",
+      "getPublishedVersion": "git describe --tags --abbrev=0",
       "publish": [
         "git tag v${ pkgFile.versionMajor } -f",
         "git tag v${ pkgFile.versionMajor }.${ pkgFile.versionMinor } -f",
