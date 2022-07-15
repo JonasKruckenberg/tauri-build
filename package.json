@@ -27,7 +27,7 @@
     "@tauri-apps/cli": "1.0.4",
     "@tauri-apps/cli-darwin-x64": "1.0.3",
     "@tauri-apps/cli-linux-x64-gnu": "1.0.3",
-    "@tauri-apps/cli-win32-x64-msvc": "1.0.3",
+    "@tauri-apps/cli-win32-x64-msvc": "1.0.4",
     "string-argv": "^0.3.1",
     "tiny-glob": "^0.2.9"
   },
