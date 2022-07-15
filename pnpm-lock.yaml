@@ -4,7 +4,7 @@ specifiers:
   '@actions/core': ^1.6.0
   '@tauri-apps/cli': 1.0.4
   '@tauri-apps/cli-darwin-x64': 1.0.4
-  '@tauri-apps/cli-linux-x64-gnu': 1.0.3
+  '@tauri-apps/cli-linux-x64-gnu': 1.0.4
   '@tauri-apps/cli-win32-x64-msvc': 1.0.4
   '@types/node': 16.11.44
   '@typescript-eslint/parser': 5.30.6
@@ -21,7 +21,7 @@ dependencies:
   '@actions/core': 1.9.0
   '@tauri-apps/cli': 1.0.4
   '@tauri-apps/cli-darwin-x64': 1.0.4
-  '@tauri-apps/cli-linux-x64-gnu': 1.0.3
+  '@tauri-apps/cli-linux-x64-gnu': 1.0.4
   '@tauri-apps/cli-win32-x64-msvc': 1.0.4
   string-argv: 0.3.1
   tiny-glob: 0.2.9
@@ -147,14 +147,6 @@ packages:
     dev: false
     optional: true
 
-  /@tauri-apps/cli-linux-x64-gnu/1.0.3:
-    resolution: {integrity: sha512-qj1fYINU5EYLxjpdlKLy/ZYev7EyIhiV1vxkYZzoY4w+9UW75+qv77QLWRgWnmN/Z6RyxP50PUuUfUPDV111+A==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
-
   /@tauri-apps/cli-linux-x64-gnu/1.0.4:
     resolution: {integrity: sha512-TiVRk+VBYA2mE4DqwLu/WD6wTHewHVbdMUtfeXdwe/kabLqbJTWuswUv5T8JUp3mYFZKqlPhyi+qWSJOc0Ianw==}
     engines: {node: '>= 10'}
@@ -162,7 +154,6 @@ packages:
     os: [linux]
     requiresBuild: true
     dev: false
-    optional: true
 
   /@tauri-apps/cli-linux-x64-musl/1.0.4:
     resolution: {integrity: sha512-TKdncZ6aFu9PfHakrrqg3XIoxgl510rN0tOTJuZ1WQT2nDD5zlP3Mo++FNIt6/TfjqayLcubIZp3dG9pU383dA==}
