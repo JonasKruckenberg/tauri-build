@@ -12,6 +12,7 @@
       "publish": [
         "git tag v${ pkgFile.versionMajor } -f",
         "git tag v${ pkgFile.versionMajor }.${ pkgFile.versionMinor } -f",
+        "git tag v${ pkgFile.version } -f"
         "git push --tags -f"
       ]
     }
