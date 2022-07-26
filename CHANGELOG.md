@@ -1,5 +1,10 @@
 # Changelog
 
+## \[1.0.5]
+
+- Update `tauri-cli` to 1.0.5
+  - [05b5654](https://github.com/JonasKruckenberg/tauri-build/commit/05b5654a68d17983acb8ec5cee449f0544ea833b) Create tauri-1.0.5.md on 2022-07-22
+
 ## \[1.0.4]
 
 - Update Tauri to v1.0.4
