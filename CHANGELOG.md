@@ -1,5 +1,10 @@
 # Changelog
 
+## \[1.1.1]
+
+- Update `tauri` to v1.1.1
+  - [d749ebb](https://github.com/JonasKruckenberg/tauri-build/commit/d749ebb9bc9fe181aa1f61f294b323c751e9f09e) Create bump-tauri.md on 2022-09-24
+
 ## \[1.1.0]
 
 - Update Tauri to 1.1.0
