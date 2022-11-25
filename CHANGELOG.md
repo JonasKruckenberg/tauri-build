@@ -1,5 +1,9 @@
 # Changelog
 
+## \[1.2.1]
+
+- - [f931547](https://github.com/JonasKruckenberg/tauri-build/commit/f931547988eea8767b932b7ce5d5bd86f6669f8a) Create tauri.md on 2022-11-24
+
 ## \[1.2.0]
 
 - Update Tauri to 1.2.0
