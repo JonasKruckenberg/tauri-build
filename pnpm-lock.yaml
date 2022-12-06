@@ -10,7 +10,7 @@ specifiers:
   '@typescript-eslint/parser': 5.44.0
   '@vercel/ncc': 0.36.0
   eslint: 8.28.0
-  eslint-plugin-github: 4.4.1
+  eslint-plugin-github: 4.6.0
   js-yaml: 4.1.0
   prettier: 2.8.0
   string-argv: ^0.3.1
@@ -31,7 +31,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.44.0_hsf322ms6xhhd4b5ne6lb74y4a
   '@vercel/ncc': 0.36.0
   eslint: 8.28.0
-  eslint-plugin-github: 4.4.1_hsf322ms6xhhd4b5ne6lb74y4a
+  eslint-plugin-github: 4.6.0_hsf322ms6xhhd4b5ne6lb74y4a
   js-yaml: 4.1.0
   prettier: 2.8.0
   typescript: 4.9.3
@@ -785,8 +785,8 @@ packages:
       lodash.upperfirst: 4.3.1
     dev: true
 
-  /eslint-plugin-github/4.4.1_hsf322ms6xhhd4b5ne6lb74y4a:
-    resolution: {integrity: sha512-wpxUIPw+EK5bdUssB8W5Z9/tapZptfJuLkThwPY8p52v75MV/Fb1AkCrLGlYO0yi3mQGFoa3uE0NMzssVAFrUw==}
+  /eslint-plugin-github/4.6.0_hsf322ms6xhhd4b5ne6lb74y4a:
+    resolution: {integrity: sha512-6VMH3wLUPEnV/0VuV3f0F74LF93N522Ht9KBYWDuPWKhr1NBzCqySIbQsxjPINIynoLtsErSc/YgICrocCc2zw==}
     hasBin: true
     peerDependencies:
       eslint: ^8.0.1
