@@ -1,9 +1,9 @@
-name: "publish"
+name: "Test"
 
 on:
   push:
-    tags:
-      - test-release/*.*.*
+  workflow_dispatch:
+  pull_request:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -23,7 +23,7 @@ jobs:
     - name: setup node
       uses: actions/setup-node@v3
       with:
-        node-version: 16
+        node-version: 18
     
     - name: install Rust stable
       uses: actions-rs/toolchain@v1
