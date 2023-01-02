@@ -152,8 +152,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macos-latest, ubuntu-latest, windows-latest]
-        include:
+        platform:
           - os: ubuntu-latest
             rust_target: x86_64-unknown-linux-gnu
           - os: macos-latest
@@ -163,36 +162,42 @@ jobs:
           - os: windows-latest
             rust_target: x86_64-pc-windows-msvc
 
-    runs-on: ${{ matrix.platform }}
+    runs-on: ${{ matrix.platform.os }}
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    
+    - name: setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
 
-      - name: setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16
+    - name: 'Setup Rust'
+      uses: actions-rs/toolchain@v1
+      with:
+        default: true
+        override: true
+        profile: minimal
+        toolchain: stable
+        target: ${{ matrix.platform.rust_target }}
 
-      - name: install Rust stable
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
+    - uses: Swatinem/rust-cache@v2
 
-      - name: install dependencies (ubuntu only)
-        if: matrix.platform == 'ubuntu-latest'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
+    - name: install dependencies (ubuntu only)
+      if: matrix.platform.os == 'ubuntu-latest'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
 
-      - uses: JonasKruckenberg/tauri-build@v1
-        id: tauri_build
-        with:
-          target: ${{ matrix.rust_target }}
+    - uses: JonasKruckenberg/tauri-build@v1.2.2
+      id: tauri_build
+      with:
+        target: ${{ matrix.platform.rust_target }}
 
-      # The `artifacts` output can now be used by a different action to upload the artifacts
-      - uses: actions/upload-artifact@v3
-        with:
-          name: artifacts
-          path: "${{ join(fromJSON(steps.tauri_build.outputs.artifacts), '\n') }}"
+    # The artifacts output can now be used to upload the artifacts
+    - uses: actions/upload-artifact@v3
+      with:
+        name: artifacts
+        path: "${{ join(fromJSON(steps.tauri_build.outputs.artifacts), '\n') }}"
 
   publish:
     needs: build-binaries
