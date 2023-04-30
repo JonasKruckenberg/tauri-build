@@ -222,6 +222,9 @@ MIT
 @tauri-apps/cli-linux-x64-gnu
 MIT
 
+@tauri-apps/cli-linux-x64-musl
+MIT
+
 @tauri-apps/cli-win32-x64-msvc
 MIT
 

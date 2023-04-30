@@ -1,21 +1,28 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 2994:
+/***/ 1533:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.darwin-x64.node")
 
 /***/ }),
 
-/***/ 4458:
+/***/ 7382:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.linux-x64-gnu.node")
 
 /***/ }),
 
-/***/ 7191:
+/***/ 1626:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+module.exports = require(__nccwpck_require__.ab + "cli.linux-x64-musl.node")
+
+/***/ }),
+
+/***/ 5817:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.win32-x64-msvc.node")
@@ -64,7 +71,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.buildProject = void 0;
-const cli_1 = __nccwpck_require__(879);
+const cli_1 = __nccwpck_require__(3642);
 const path_1 = __nccwpck_require__(1017);
 const tiny_glob_1 = __importDefault(__nccwpck_require__(8785));
 const core = __importStar(__nccwpck_require__(1368));
@@ -1984,7 +1991,7 @@ exports.checkBypass = checkBypass;
 
 /***/ }),
 
-/***/ 5200:
+/***/ 6740:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const { existsSync, readFileSync } = __nccwpck_require__(7147)
@@ -2000,7 +2007,8 @@ function isMusl() {
   // For Node 10
   if (!process.report || typeof process.report.getReport !== 'function') {
     try {
-      return readFileSync('/usr/bin/ldd', 'utf8').includes('musl')
+      const lddPath = (__nccwpck_require__(2081).execSync)('which ldd').toString().trim();
+      return readFileSync(lddPath, 'utf8').includes('musl')
     } catch (e) {
       return true
     }
@@ -2051,7 +2059,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(2695)
           } else {
-            nativeBinding = __nccwpck_require__(7191)
+            nativeBinding = __nccwpck_require__(5817)
           }
         } catch (e) {
           loadError = e
@@ -2090,6 +2098,15 @@ switch (platform) {
     }
     break
   case 'darwin':
+    localFileExisted = existsSync(join(__dirname, 'cli.darwin-universal.node'))
+    try {
+      if (localFileExisted) {
+        nativeBinding = __nccwpck_require__(1822)
+      } else {
+        nativeBinding = __nccwpck_require__(8636)
+      }
+      break
+    } catch {}
     switch (arch) {
       case 'x64':
         localFileExisted = existsSync(join(__dirname, 'cli.darwin-x64.node'))
@@ -2097,7 +2114,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(5921)
           } else {
-            nativeBinding = __nccwpck_require__(2994)
+            nativeBinding = __nccwpck_require__(1533)
           }
         } catch (e) {
           loadError = e
@@ -2147,7 +2164,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = __nccwpck_require__(3578)
             } else {
-              nativeBinding = __nccwpck_require__(2896)
+              nativeBinding = __nccwpck_require__(1626)
             }
           } catch (e) {
             loadError = e
@@ -2160,7 +2177,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = __nccwpck_require__(4940)
             } else {
-              nativeBinding = __nccwpck_require__(4458)
+              nativeBinding = __nccwpck_require__(7382)
             }
           } catch (e) {
             loadError = e
@@ -2233,10 +2250,14 @@ module.exports.logError = logError
 
 /***/ }),
 
-/***/ 879:
+/***/ 3642:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const { run, logError } = __nccwpck_require__(5200)
+// Copyright 2019-2023 Tauri Programme within The Commons Conservancy
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: MIT
+
+const { run, logError } = __nccwpck_require__(6740)
 
 module.exports.run = (args, binName) => {
   return new Promise((resolve, reject) => {
@@ -3083,6 +3104,14 @@ module.exports = eval("require")("./cli.darwin-arm64.node");
 
 /***/ }),
 
+/***/ 1822:
+/***/ ((module) => {
+
+module.exports = eval("require")("./cli.darwin-universal.node");
+
+
+/***/ }),
+
 /***/ 5921:
 /***/ ((module) => {
 
@@ -3187,6 +3216,14 @@ module.exports = eval("require")("@tauri-apps/cli-darwin-arm64");
 
 /***/ }),
 
+/***/ 8636:
+/***/ ((module) => {
+
+module.exports = eval("require")("@tauri-apps/cli-darwin-universal");
+
+
+/***/ }),
+
 /***/ 9968:
 /***/ ((module) => {
 
@@ -3215,14 +3252,6 @@ module.exports = eval("require")("@tauri-apps/cli-linux-arm64-gnu");
 /***/ ((module) => {
 
 module.exports = eval("require")("@tauri-apps/cli-linux-arm64-musl");
-
-
-/***/ }),
-
-/***/ 2896:
-/***/ ((module) => {
-
-module.exports = eval("require")("@tauri-apps/cli-linux-x64-musl");
 
 
 /***/ }),
