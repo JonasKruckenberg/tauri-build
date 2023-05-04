@@ -48,7 +48,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
       - name: covector version or publish (publish when no change files present)
-        uses: jbolda/covector/packages/action@covector-v0.7
+        uses: jbolda/covector/packages/action@covector-v0
         id: covector
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
