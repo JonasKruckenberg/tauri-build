@@ -1,0 +1,67 @@
+name: version or publish
+
+on:
+  push:
+    branches:
+      - next
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  version-or-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    outputs:
+      change: ${{ steps.covector.outputs.change }}
+      commandRan: ${{ steps.covector.outputs.commandRan }}
+      successfulPublish: ${{ steps.covector.outputs.successfulPublish }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: git config
+        run: |
+          git config --global user.name "${{ github.event.pusher.name }}"
+          git config --global user.email "${{ github.event.pusher.email }}"
+      - uses: actions/setup-node@v3.6.0
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+      - uses: pnpm/action-setup@v2.2.4
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: covector version or publish (publish when no change files present)
+        uses: jbolda/covector/packages/action@covector-v0.7
+        id: covector
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          command: 'version-or-publish'
+          createRelease: true
+      - name: Create Pull Request With Versions Bumped
+        id: cpr
+        uses: peter-evans/create-pull-request@v5
+        if: steps.covector.outputs.commandRan == 'version'
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "(NEXT) Publish New Versions"
+          commit-message: "publish new versions"
+          labels: "version updates"
+          branch: "release-next"
+          body: ${{ steps.covector.outputs.change }}
