@@ -1,5 +1,14 @@
 # Changelog
 
+## \[1.3.0]
+
+- Update tauri to 1.3.0
+  - [f78901d](https://github.com/JonasKruckenberg/tauri-build/commit/f78901d646969119b2585fbcaf3d46056f1604c1) Create update-tauri.md on 2022-09-16
+  - [24c9678](https://github.com/JonasKruckenberg/tauri-build/commit/24c9678759ed3f11bcd173349949791c79af9471) publish new versions on 2022-09-16
+  - [16e594e](https://github.com/JonasKruckenberg/tauri-build/commit/16e594e2bd5705d3272a4fdfbb09ee509c26ace8) Create update-tauri.md on 2022-11-09
+  - [9cbb1b5](https://github.com/JonasKruckenberg/tauri-build/commit/9cbb1b5329393fdf442be97243c12d64ffaa24d3) publish new versions on 2022-11-09
+  - [f4944ed](https://github.com/JonasKruckenberg/tauri-build/commit/f4944ed69c7b08318409c8a713b452c983a595e5) Create update-tauri.md on 2023-05-04
+
 ## \[1.2.3]
 
 - Update Tauri
