@@ -1,4 +1,6 @@
 {
   "tag": "alpha",
-  "changes": []
+  "changes": [
+    ".changes/update-tauri.md"
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "tauri-build",
-  "version": "2.0.0-alpha.7",
+  "version": "2.0.1-alpha.0",
   "description": "TypeScript template action",
   "main": "lib/main.js",
   "scripts": {

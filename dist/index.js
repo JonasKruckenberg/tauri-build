@@ -15,13 +15,6 @@ module.exports = require(__nccwpck_require__.ab + "cli.linux-x64-gnu.node")
 
 /***/ }),
 
-/***/ 1626:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-module.exports = require(__nccwpck_require__.ab + "cli.linux-x64-musl.node")
-
-/***/ }),
-
 /***/ 5817:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
@@ -116,7 +109,14 @@ function buildProject(options) {
             'AppImage.tar.gz.sig',
             'deb'
         ];
-        const windowsExts = ['msi', 'msi.zip', 'msi.zip.sig', 'exe', 'nsis.zip', 'nsis.zip.sig'];
+        const windowsExts = [
+            'msi',
+            'msi.zip',
+            'msi.zip.sig',
+            'exe',
+            'nsis.zip',
+            'nsis.zip.sig'
+        ];
         const artifactsLookupPattern = `${bundleDir}/*/!(linuxdeploy)*.{${[
             ...macOSExts,
             linuxExts,
@@ -2164,7 +2164,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = __nccwpck_require__(3578)
             } else {
-              nativeBinding = __nccwpck_require__(1626)
+              nativeBinding = __nccwpck_require__(2896)
             }
           } catch (e) {
             loadError = e
@@ -3252,6 +3252,14 @@ module.exports = eval("require")("@tauri-apps/cli-linux-arm64-gnu");
 /***/ ((module) => {
 
 module.exports = eval("require")("@tauri-apps/cli-linux-arm64-musl");
+
+
+/***/ }),
+
+/***/ 2896:
+/***/ ((module) => {
+
+module.exports = eval("require")("@tauri-apps/cli-linux-x64-musl");
 
 
 /***/ }),
