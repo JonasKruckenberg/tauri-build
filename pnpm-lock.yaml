@@ -41,8 +41,8 @@ devDependencies:
     specifier: 8.41.0
     version: 8.41.0
   eslint-plugin-github:
-    specifier: 4.7.0
-    version: 4.7.0(eslint@8.41.0)(typescript@5.0.4)
+    specifier: 4.8.0
+    version: 4.8.0(eslint@8.41.0)(typescript@5.0.4)
   js-yaml:
     specifier: 4.1.0
     version: 4.1.0
@@ -879,8 +879,8 @@ packages:
       lodash.upperfirst: 4.3.1
     dev: true
 
-  /eslint-plugin-github@4.7.0(eslint@8.41.0)(typescript@5.0.4):
-    resolution: {integrity: sha512-SIFSy6IXtN3aGQ6YyFWg/oxRUyAcYwg5G0wh+ov1HQCvmp+Pzs1GzeVjU8QcIQSSJfverQzuxWrJCAln/d2PuQ==}
+  /eslint-plugin-github@4.8.0(eslint@8.41.0)(typescript@5.0.4):
+    resolution: {integrity: sha512-1qu1qcyac4FfZmT9KNPr5250DwWzwp6uy6xAqHD2boE4OquUpeTni05yPn1b6y6vUYm/q8+npTdyYiRSqvg+BQ==}
     hasBin: true
     peerDependencies:
       eslint: ^8.0.1
