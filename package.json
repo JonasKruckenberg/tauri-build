@@ -23,7 +23,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.6.0",
+    "@actions/core": "^1.9.1",
     "@tauri-apps/cli": "1.4.0",
     "@tauri-apps/cli-darwin-x64": "1.4.0",
     "@tauri-apps/cli-linux-x64-gnu": "1.4.0",
