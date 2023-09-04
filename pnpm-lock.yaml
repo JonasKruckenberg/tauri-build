@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@actions/core':
-    specifier: ^1.6.0
-    version: 1.9.0
+    specifier: ^1.9.1
+    version: 1.9.1
   '@tauri-apps/cli':
     specifier: 1.4.0
     version: 1.4.0
@@ -55,10 +55,11 @@ devDependencies:
 
 packages:
 
-  /@actions/core@1.9.0:
-    resolution: {integrity: sha512-5pbM693Ih59ZdUhgk+fts+bUWTnIdHV3kwOSr+QIoFHMLg7Gzhwm0cifDY/AG68ekEJAkHnQVpcy4f6GjmzBCA==}
+  /@actions/core@1.9.1:
+    resolution: {integrity: sha512-5ad+U2YGrmmiw6du20AQW5XuWo7UKN2052FjSV7MX+Wfjf8sCqcsZe62NfgHys4QI4/Y+vQvLKYL8jWtA1ZBTA==}
     dependencies:
       '@actions/http-client': 2.0.1
+      uuid: 8.3.2
     dev: false
 
   /@actions/http-client@2.0.1:
@@ -2119,6 +2120,11 @@ packages:
     dependencies:
       punycode: 2.1.1
     dev: true
+
+  /uuid@8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
+    dev: false
 
   /which-boxed-primitive@1.0.2:
     resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}
