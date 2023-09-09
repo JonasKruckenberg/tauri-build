@@ -4,7 +4,6 @@
     "github action": {
       "version": true,
       "preversion": [
-        "pnpm install --no-optional",
         "pnpm build",
         "pnpm package"
       ],
