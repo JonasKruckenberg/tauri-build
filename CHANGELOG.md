@@ -1,5 +1,10 @@
 # Changelog
 
+## \[1.4.0]
+
+- Update Tauri to 1.4.0
+  - [e8e3a06](https://github.com/JonasKruckenberg/tauri-build/commit/e8e3a063b0b9a0065a3298417538bc4a4cd67dcf) Create tauri-140.md on 2023-09-09
+
 ## \[1.3.0]
 
 - Update tauri to 1.3.0
