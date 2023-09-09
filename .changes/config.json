@@ -4,6 +4,7 @@
     "github action": {
       "version": true,
       "preversion": [
+        "pnpm install --no-optional --no-frozen-lockfile",
         "pnpm build",
         "pnpm package"
       ],
