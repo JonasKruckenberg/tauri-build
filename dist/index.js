@@ -109,7 +109,7 @@ function buildProject(options) {
             'AppImage.tar.gz.sig',
             'deb'
         ];
-        const windowsExts = ['msi', 'msi.zip', 'msi.zip.sig'];
+        const windowsExts = ['exe', 'nsis.zip', 'nsis.zip.sig', 'msi', 'msi.zip', 'msi.zip.sig'];
         const artifactsLookupPattern = `${bundleDir}/*/!(linuxdeploy)*.{${[
             ...macOSExts,
             linuxExts,
