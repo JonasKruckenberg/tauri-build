@@ -1,21 +1,21 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 1560:
+/***/ 5472:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.darwin-x64.node")
 
 /***/ }),
 
-/***/ 7675:
+/***/ 1244:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.linux-x64-gnu.node")
 
 /***/ }),
 
-/***/ 7392:
+/***/ 7598:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.win32-x64-msvc.node")
@@ -64,7 +64,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.buildProject = void 0;
-const cli_1 = __nccwpck_require__(3416);
+const cli_1 = __nccwpck_require__(3496);
 const path_1 = __nccwpck_require__(1017);
 const tiny_glob_1 = __importDefault(__nccwpck_require__(5745));
 const core = __importStar(__nccwpck_require__(9093));
@@ -2075,7 +2075,7 @@ function isLoopbackAddress(host) {
 
 /***/ }),
 
-/***/ 1751:
+/***/ 974:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /* tslint:disable */
@@ -2149,7 +2149,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(7937)
           } else {
-            nativeBinding = __nccwpck_require__(7392)
+            nativeBinding = __nccwpck_require__(7598)
           }
         } catch (e) {
           loadError = e
@@ -2204,7 +2204,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(8300)
           } else {
-            nativeBinding = __nccwpck_require__(1560)
+            nativeBinding = __nccwpck_require__(5472)
           }
         } catch (e) {
           loadError = e
@@ -2267,7 +2267,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = __nccwpck_require__(2308)
             } else {
-              nativeBinding = __nccwpck_require__(7675)
+              nativeBinding = __nccwpck_require__(1244)
             }
           } catch (e) {
             loadError = e
@@ -2340,14 +2340,14 @@ module.exports.logError = logError
 
 /***/ }),
 
-/***/ 3416:
+/***/ 3496:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // Copyright 2019-2023 Tauri Programme within The Commons Conservancy
 // SPDX-License-Identifier: Apache-2.0
 // SPDX-License-Identifier: MIT
 
-const { run, logError } = __nccwpck_require__(1751)
+const { run, logError } = __nccwpck_require__(974)
 
 module.exports.run = (args, binName) => {
   return new Promise((resolve, reject) => {
