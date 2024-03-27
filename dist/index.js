@@ -1,21 +1,28 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 2556:
+/***/ 2417:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+module.exports = require(__nccwpck_require__.ab + "cli.darwin-arm64.node")
+
+/***/ }),
+
+/***/ 5720:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.darwin-x64.node")
 
 /***/ }),
 
-/***/ 3430:
+/***/ 9564:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.linux-x64-gnu.node")
 
 /***/ }),
 
-/***/ 198:
+/***/ 2633:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.win32-x64-msvc.node")
@@ -64,7 +71,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.buildProject = void 0;
-const cli_1 = __nccwpck_require__(4968);
+const cli_1 = __nccwpck_require__(6192);
 const path_1 = __nccwpck_require__(1017);
 const tiny_glob_1 = __importDefault(__nccwpck_require__(5745));
 const core = __importStar(__nccwpck_require__(9093));
@@ -109,7 +116,14 @@ function buildProject(options) {
             'AppImage.tar.gz.sig',
             'deb'
         ];
-        const windowsExts = ['exe', 'exe.zip', 'exe.zip.sig', 'msi', 'msi.zip', 'msi.zip.sig'];
+        const windowsExts = [
+            'exe',
+            'exe.zip',
+            'exe.zip.sig',
+            'msi',
+            'msi.zip',
+            'msi.zip.sig'
+        ];
         const artifactsLookupPattern = `${bundleDir}/*/!(linuxdeploy)*.{${[
             ...macOSExts,
             linuxExts,
@@ -2075,8 +2089,12 @@ function isLoopbackAddress(host) {
 
 /***/ }),
 
-/***/ 2188:
+/***/ 9481:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+// Copyright 2019-2024 Tauri Programme within The Commons Conservancy
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: MIT
 
 /* tslint:disable */
 /* eslint-disable */
@@ -2149,7 +2167,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(7937)
           } else {
-            nativeBinding = __nccwpck_require__(198)
+            nativeBinding = __nccwpck_require__(2633)
           }
         } catch (e) {
           loadError = e
@@ -2204,7 +2222,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(8300)
           } else {
-            nativeBinding = __nccwpck_require__(2556)
+            nativeBinding = __nccwpck_require__(5720)
           }
         } catch (e) {
           loadError = e
@@ -2218,7 +2236,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(9209)
           } else {
-            nativeBinding = __nccwpck_require__(1202)
+            nativeBinding = __nccwpck_require__(2417)
           }
         } catch (e) {
           loadError = e
@@ -2267,7 +2285,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = __nccwpck_require__(2308)
             } else {
-              nativeBinding = __nccwpck_require__(3430)
+              nativeBinding = __nccwpck_require__(9564)
             }
           } catch (e) {
             loadError = e
@@ -2340,20 +2358,20 @@ module.exports.logError = logError
 
 /***/ }),
 
-/***/ 4968:
+/***/ 6192:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-// Copyright 2019-2023 Tauri Programme within The Commons Conservancy
+// Copyright 2019-2024 Tauri Programme within The Commons Conservancy
 // SPDX-License-Identifier: Apache-2.0
 // SPDX-License-Identifier: MIT
 
-const { run, logError } = __nccwpck_require__(2188)
+const { run, logError } = __nccwpck_require__(9481)
 
 module.exports.run = (args, binName) => {
   return new Promise((resolve, reject) => {
-    run(args, binName, res => {
-      if (res instanceof Error) {
-        reject(res)
+    run(args, binName, (error, res) => {
+      if (error) {
+        reject(error)
       } else {
         resolve(res)
       }
@@ -25833,14 +25851,6 @@ module.exports = eval("require")("@tauri-apps/cli-android-arm-eabi");
 /***/ ((module) => {
 
 module.exports = eval("require")("@tauri-apps/cli-android-arm64");
-
-
-/***/ }),
-
-/***/ 1202:
-/***/ ((module) => {
-
-module.exports = eval("require")("@tauri-apps/cli-darwin-arm64");
 
 
 /***/ }),
