@@ -1,5 +1,14 @@
 # Changelog
 
+## \[1.5.1]
+
+- Bump Tauri CLI to 1.5.1
+  - [d749ebb](https://github.com/JonasKruckenberg/tauri-build/commit/d749ebb9bc9fe181aa1f61f294b323c751e9f09e) Create bump-tauri.md on 2022-09-24
+  - [5cfbb48](https://github.com/JonasKruckenberg/tauri-build/commit/5cfbb48254bda2944898618864feab9ce333e555) publish new versions on 2022-09-24
+  - [ae03b5c](https://github.com/JonasKruckenberg/tauri-build/commit/ae03b5c9d2dfe37115cdf1ce8735b94ed6df1b1d) bump tauri on 2024-03-27
+  - [da63165](https://github.com/JonasKruckenberg/tauri-build/commit/da631651080a3f6a054a04689aabcced0fb27166) publish new versions on 2024-03-27
+  - [2143a74](https://github.com/JonasKruckenberg/tauri-build/commit/2143a74716c973189a1c68171024c772ce99f962) bump tauri on 2024-03-27
+
 ## \[1.5.0]
 
 - Bump Tauri CLI to 1.5.0
