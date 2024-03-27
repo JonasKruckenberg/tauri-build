@@ -238,6 +238,9 @@ Apache-2.0 OR MIT
    END OF TERMS AND CONDITIONS
 
 
+@tauri-apps/cli-darwin-arm64
+MIT
+
 @tauri-apps/cli-darwin-x64
 MIT
 
