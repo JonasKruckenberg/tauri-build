@@ -26,6 +26,7 @@
     "@actions/core": "^1.10.1",
     "@tauri-apps/cli": "2.0.0-rc.0",
     "@tauri-apps/cli-darwin-x64": "2.0.0-rc.0",
+    "@tauri-apps/cli-darwin-arm64": "2.0.0-rc.0",
     "@tauri-apps/cli-linux-x64-gnu": "2.0.0-rc.0",
     "@tauri-apps/cli-win32-x64-msvc": "2.0.0-rc.0",
     "string-argv": "^0.3.2",
@@ -40,5 +41,6 @@
     "js-yaml": "4.1.0",
     "prettier": "3.0.3",
     "typescript": "5.3.3"
-  }
+  },
+  "packageManager": "pnpm@9.7.0+sha512.dc09430156b427f5ecfc79888899e1c39d2d690f004be70e05230b72cb173d96839587545d09429b55ac3c429c801b4dc3c0e002f653830a420fa2dd4e3cf9cf"
 }
