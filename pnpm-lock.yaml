@@ -52,8 +52,8 @@ importers:
         specifier: 4.1.0
         version: 4.1.0
       prettier:
-        specifier: 3.0.3
-        version: 3.0.3
+        specifier: 3.3.3
+        version: 3.3.3
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -1068,8 +1068,8 @@ packages:
     resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
     engines: {node: '>=6.0.0'}
 
-  prettier@3.0.3:
-    resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
+  prettier@3.3.3:
+    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -1890,10 +1890,10 @@ snapshots:
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.7.0(eslint@8.49.0)(typescript@5.3.3))(eslint@8.49.0)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.49.0)
       eslint-plugin-no-only-tests: 3.1.0
-      eslint-plugin-prettier: 5.1.3(eslint-config-prettier@9.1.0(eslint@8.49.0))(eslint@8.49.0)(prettier@3.0.3)
+      eslint-plugin-prettier: 5.1.3(eslint-config-prettier@9.1.0(eslint@8.49.0))(eslint@8.49.0)(prettier@3.3.3)
       eslint-rule-documentation: 1.0.23
       jsx-ast-utils: 3.3.5
-      prettier: 3.0.3
+      prettier: 3.3.3
       svg-element-attributes: 1.3.1
     transitivePeerDependencies:
       - '@types/eslint'
@@ -1955,10 +1955,10 @@ snapshots:
 
   eslint-plugin-no-only-tests@3.1.0: {}
 
-  eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0(eslint@8.49.0))(eslint@8.49.0)(prettier@3.0.3):
+  eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0(eslint@8.49.0))(eslint@8.49.0)(prettier@3.3.3):
     dependencies:
       eslint: 8.49.0
-      prettier: 3.0.3
+      prettier: 3.3.3
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.8
     optionalDependencies:
@@ -2457,7 +2457,7 @@ snapshots:
     dependencies:
       fast-diff: 1.3.0
 
-  prettier@3.0.3: {}
+  prettier@3.3.3: {}
 
   punycode@2.3.1: {}
 
