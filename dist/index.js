@@ -1,28 +1,28 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 2417:
+/***/ 7873:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.darwin-arm64.node")
 
 /***/ }),
 
-/***/ 5720:
+/***/ 1634:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.darwin-x64.node")
 
 /***/ }),
 
-/***/ 9564:
+/***/ 3180:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.linux-x64-gnu.node")
 
 /***/ }),
 
-/***/ 2633:
+/***/ 499:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports = require(__nccwpck_require__.ab + "cli.win32-x64-msvc.node")
@@ -71,7 +71,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.buildProject = void 0;
-const cli_1 = __nccwpck_require__(6192);
+const cli_1 = __nccwpck_require__(2301);
 const path_1 = __nccwpck_require__(1017);
 const tiny_glob_1 = __importDefault(__nccwpck_require__(5745));
 const core = __importStar(__nccwpck_require__(9093));
@@ -2089,7 +2089,7 @@ function isLoopbackAddress(host) {
 
 /***/ }),
 
-/***/ 9481:
+/***/ 6197:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // Copyright 2019-2024 Tauri Programme within The Commons Conservancy
@@ -2167,7 +2167,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(7937)
           } else {
-            nativeBinding = __nccwpck_require__(2633)
+            nativeBinding = __nccwpck_require__(499)
           }
         } catch (e) {
           loadError = e
@@ -2222,7 +2222,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(8300)
           } else {
-            nativeBinding = __nccwpck_require__(5720)
+            nativeBinding = __nccwpck_require__(1634)
           }
         } catch (e) {
           loadError = e
@@ -2236,7 +2236,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(9209)
           } else {
-            nativeBinding = __nccwpck_require__(2417)
+            nativeBinding = __nccwpck_require__(7873)
           }
         } catch (e) {
           loadError = e
@@ -2285,7 +2285,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = __nccwpck_require__(2308)
             } else {
-              nativeBinding = __nccwpck_require__(9564)
+              nativeBinding = __nccwpck_require__(3180)
             }
           } catch (e) {
             loadError = e
@@ -2358,14 +2358,14 @@ module.exports.logError = logError
 
 /***/ }),
 
-/***/ 6192:
+/***/ 2301:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // Copyright 2019-2024 Tauri Programme within The Commons Conservancy
 // SPDX-License-Identifier: Apache-2.0
 // SPDX-License-Identifier: MIT
 
-const { run, logError } = __nccwpck_require__(9481)
+const { run, logError } = __nccwpck_require__(6197)
 
 module.exports.run = (args, binName) => {
   return new Promise((resolve, reject) => {
