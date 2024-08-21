@@ -28,7 +28,7 @@ jobs:
           git config --global user.email "${{ github.event.pusher.email }}"
       - uses: actions/setup-node@v4.0.1
         with:
-          node-version: '16.x'
+          node-version: 20
           registry-url: 'https://registry.npmjs.org'
       - uses: pnpm/action-setup@v2.4.0
         name: Install pnpm
@@ -60,8 +60,8 @@ jobs:
         if: steps.covector.outputs.commandRan == 'version'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: "Publish New Versions"
-          commit-message: "publish new versions"
-          labels: "version updates"
-          branch: "release"
+          title: 'Publish New Versions'
+          commit-message: 'publish new versions'
+          labels: 'version updates'
+          branch: 'release'
           body: ${{ steps.covector.outputs.change }}
