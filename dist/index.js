@@ -1,6 +1,13 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 8202:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+module.exports = require(__nccwpck_require__.ab + "cli.darwin-arm64.node")
+
+/***/ }),
+
 /***/ 5731:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
@@ -109,7 +116,14 @@ function buildProject(options) {
             'AppImage.tar.gz.sig',
             'deb'
         ];
-        const windowsExts = ['exe', 'exe.zip', 'exe.zip.sig', 'msi', 'msi.zip', 'msi.zip.sig'];
+        const windowsExts = [
+            'exe',
+            'exe.zip',
+            'exe.zip.sig',
+            'msi',
+            'msi.zip',
+            'msi.zip.sig'
+        ];
         const artifactsLookupPattern = `${bundleDir}/*/!(linuxdeploy)*.{${[
             ...macOSExts,
             linuxExts,
@@ -2218,7 +2232,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = __nccwpck_require__(9209)
           } else {
-            nativeBinding = __nccwpck_require__(1202)
+            nativeBinding = __nccwpck_require__(8202)
           }
         } catch (e) {
           loadError = e
@@ -25833,14 +25847,6 @@ module.exports = eval("require")("@tauri-apps/cli-android-arm-eabi");
 /***/ ((module) => {
 
 module.exports = eval("require")("@tauri-apps/cli-android-arm64");
-
-
-/***/ }),
-
-/***/ 1202:
-/***/ ((module) => {
-
-module.exports = eval("require")("@tauri-apps/cli-darwin-arm64");
 
 
 /***/ }),
