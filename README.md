@@ -4,10 +4,10 @@ A composable action to build your Tauri project.
 
 ## Usage
 
-As opposed to the offical [tauri-action](https://github.com/tauri-apps/tauri-action) this action is as minimal as possible. 
+As opposed to the offical [tauri-action](https://github.com/tauri-apps/tauri-action) this action is as minimal as possible.
 Instead of creating a GitHub release and uploading artifacts all-in-one, it provides outputs to conveniently compose together with other actions such as `actions/upload-artifact`, `actions/download-artifact` or `softprops/action-gh-release`.
 
-This action needs both Node.JS and Cargo to be already setup. 
+This action needs both Node.JS and Cargo to be already setup.
 
 ### Minimal
 
@@ -39,7 +39,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 20
 
       - name: install Rust stable
         uses: actions-rs/toolchain@v1
@@ -88,7 +88,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 20
 
       - name: install Rust stable
         uses: actions-rs/toolchain@v1
@@ -165,11 +165,11 @@ jobs:
     runs-on: ${{ matrix.platform.os }}
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: setup node
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 20
 
     - name: 'Setup Rust'
       uses: actions-rs/toolchain@v1
