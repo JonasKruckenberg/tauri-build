@@ -124,14 +124,14 @@ async function spawnCmd(
   args: string[],
   options: SpawnOptionsWithoutStdio = {}
 ): Promise<void> {
-  return new Promise((resolve, reject) => {
+  return new Promise((spawn_resolve, reject) => {
     const child = spawn(cmd, args, {
       ...options,
       stdio: ['pipe', 'inherit', 'inherit'],
       shell: true
     })
 
-    child.on('exit', () => resolve)
+    child.on('exit', () => spawn_resolve)
 
     child.on('error', error => {
       reject(error)
@@ -150,20 +150,20 @@ async function execCmd(
   args: string[],
   options: Omit<ExecOptionsWithStringEncoding, 'encoding'> = {}
 ): Promise<string> {
-  return new Promise((resolve, reject) => {
+  return new Promise((exe_resolve, reject) => {
     exec(
       `${cmd} ${args.join(' ')}`,
       {...options, encoding: 'utf-8'},
       (error, stdout, stderr) => {
         if (error) {
-          console.error(
+          core.error(
             `Failed to execute cmd ${cmd} with args: ${args.join(
               ' '
             )}. reason: ${error}`
           )
           reject(stderr)
         } else {
-          resolve(stdout)
+          exe_resolve(stdout)
         }
       }
     )
